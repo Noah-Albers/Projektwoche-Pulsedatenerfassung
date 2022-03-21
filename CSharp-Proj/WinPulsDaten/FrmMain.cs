@@ -35,9 +35,9 @@ namespace WinPulsDaten
 
         }
 
-        private void tabControll_SelectedIndexChanged(object sender, EventArgs e)
+        private void tabRegisterSelect()
         {
-            if (tabControll.SelectedIndex == 0) regesiterNewUser();
+            regesiterNewUser();
         }
 
 
@@ -189,8 +189,11 @@ namespace WinPulsDaten
             // Checks for the tab changes and executes their events
 
 
-            if(this.tabControll.SelectedTab.Equals(this.tabStatsAll))
+            if (this.tabControll.SelectedTab.Equals(this.tabStatsAll))
                 this.tabStatsAllSelect();
+
+            else if (this.tabControll.SelectedTab.Equals(this.tabRegister))
+                this.tabRegisterSelect();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 // 25.01.2022
 //
 
-namespace WinDatabaseTest
+namespace WinPulsDaten
 {
     /// <summary>
     /// Config object for the database
