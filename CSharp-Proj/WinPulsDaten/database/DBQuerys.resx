@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="select.HpOverAge" xml:space="preserve">
+    <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) age FROM `person` p group by age order by 2;</value>
+    <comment>Selects all HpMax-Values and assignes them to the age of the user (Also ordered by age decreasing)</comment>
+  </data>
+  <data name="select.RestpulsOverWeight" xml:space="preserve">
+    <value>Select CAST(SUM(pld.wert)/Count(*) as int) pulse, p.Gewicht weight from person p Join pulsdaten pld on pld.person = p.ID Join aktivitaet a on a.Id = pld.aktivitaet where
+a.Id = 1 group by p.ID order by 2</value>
+    <comment>Select all Restpluse values and assignes them to the weight of the user (Also ordered by age decreasing)</comment>
+  </data>
 </root>
