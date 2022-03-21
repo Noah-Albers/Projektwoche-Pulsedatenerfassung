@@ -117,9 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="select.activitys" xml:space="preserve">
+    <value>SELECT a.Id id,a.Art art,a.faktor factor FROM `aktivitaet` a</value>
+    <comment>Selects all activitys</comment>
+  </data>
   <data name="select.HpOverAge" xml:space="preserve">
     <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) age FROM `person` p group by age order by 2;</value>
     <comment>Selects all HpMax-Values and assignes them to the age of the user (Also ordered by age decreasing)</comment>
+  </data>
+  <data name="select.personPulseOverTime" xml:space="preserve">
+    <value>SELECT pld.erfassungszeit time, pld.wert val FROM person p JOIN pulsdaten pld on pld.person = p.ID where p.ID = @person and pld.aktivitaet = @activity order by 1</value>
+    <comment>Select all pluse over time from a single person and a single activity.</comment>
   </data>
   <data name="select.RestpulsOverWeight" xml:space="preserve">
     <value>Select CAST(SUM(pld.wert)/Count(*) as int) pulse, p.Gewicht weight from person p Join pulsdaten pld on pld.person = p.ID Join aktivitaet a on a.Id = pld.aktivitaet where

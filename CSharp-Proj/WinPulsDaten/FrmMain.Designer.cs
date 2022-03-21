@@ -77,7 +77,6 @@ namespace WinPulsDaten
             this.button1 = new System.Windows.Forms.Button();
             this.tabAnalysisMe = new System.Windows.Forms.TabPage();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPersonalData = new System.Windows.Forms.TabPage();
             this.perLbTrainingHeartRade = new System.Windows.Forms.Label();
             this.perNudTrainingHeartRade = new System.Windows.Forms.NumericUpDown();
@@ -86,6 +85,8 @@ namespace WinPulsDaten
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
             this.tabWelcome = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHp.SuspendLayout();
@@ -515,8 +516,9 @@ namespace WinPulsDaten
             // 
             // tabAnalysisMe
             // 
+            this.tabAnalysisMe.Controls.Add(this.label1);
+            this.tabAnalysisMe.Controls.Add(this.comboBox1);
             this.tabAnalysisMe.Controls.Add(this.chart2);
-            this.tabAnalysisMe.Controls.Add(this.button2);
             this.tabAnalysisMe.Location = new System.Drawing.Point(4, 22);
             this.tabAnalysisMe.Name = "tabAnalysisMe";
             this.tabAnalysisMe.Size = new System.Drawing.Size(768, 546);
@@ -526,28 +528,22 @@ namespace WinPulsDaten
             // 
             // chart2
             // 
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(308, 33);
+            this.chart2.Location = new System.Drawing.Point(3, 51);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(300, 300);
+            this.chart2.Size = new System.Drawing.Size(762, 492);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(120, 133);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // tabPersonalData
             // 
@@ -624,6 +620,27 @@ namespace WinPulsDaten
             this.tabWelcome.Text = "Welcome";
             this.tabWelcome.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Analysis-Mode";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "MaxHP over Age",
+            "Restpulse over Weight"});
+            this.comboBox1.Location = new System.Drawing.Point(9, 24);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -647,6 +664,7 @@ namespace WinPulsDaten
             ((System.ComponentModel.ISupportInitialize)(this.staChartDisplay)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.tabAnalysisMe.ResumeLayout(false);
+            this.tabAnalysisMe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.tabPersonalData.ResumeLayout(false);
             this.tabPersonalData.PerformLayout();
@@ -694,7 +712,6 @@ namespace WinPulsDaten
         private System.Windows.Forms.TabPage tabSettings;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabAnalysisMe;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPersonalData;
         private System.Windows.Forms.Label perLbTrainingHeartRade;
         private System.Windows.Forms.NumericUpDown perNudTrainingHeartRade;
@@ -708,5 +725,7 @@ namespace WinPulsDaten
         private System.Windows.Forms.DateTimePicker regDpAge;
         private System.Windows.Forms.TextBox regTbFirstname;
         private System.Windows.Forms.TabPage tabWelcome;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

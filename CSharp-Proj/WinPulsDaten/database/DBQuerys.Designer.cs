@@ -61,11 +61,29 @@ namespace WinPulsDaten.database {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Art art,a.faktor factor FROM `aktivitaet` a ähnelt.
+        /// </summary>
+        internal static string select_activitys {
+            get {
+                return ResourceManager.GetString("select.activitys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) age FROM `person` p group by age order by 2; ähnelt.
         /// </summary>
         internal static string select_HpOverAge {
             get {
                 return ResourceManager.GetString("select.HpOverAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT pld.erfassungszeit time, pld.wert val FROM person p JOIN pulsdaten pld on pld.person = p.ID where p.ID = @person and pld.aktivitaet = @activity order by 1 ähnelt.
+        /// </summary>
+        internal static string select_personPulseOverTime {
+            get {
+                return ResourceManager.GetString("select.personPulseOverTime", resourceCulture);
             }
         }
         

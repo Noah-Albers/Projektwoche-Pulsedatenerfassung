@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,13 @@ namespace WinPulsDaten
         // Event: When a different display mode get's selected
         private async void staCbMode_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Loads a datatable with x axis and the name
+            void LoadDT(DataTable table, string xAxis, string tableName)
+            {
+                this.staChartDisplay.DataBindTable(table.DefaultView, xAxis);
+                this.staChartDisplay.Series[0].Name = tableName;
+            }
+
             // Disables the mode selection
             this.staCbMode.Enabled = false;
 
@@ -30,15 +38,21 @@ namespace WinPulsDaten
                     // Age over hp
                     case 0:
                         // Updates the chart
-                        this.staChartDisplay.DataBindTable(this.DB.SelectAsTable(DBQuerys.select_HpOverAge).DefaultView, "age");
-                        this.staChartDisplay.Series[0].Name = "MaxHP over Age";
+                        LoadDT(
+                            await this.DB.SelectAsTableAsync(DBQuerys.select_HpOverAge),
+                            "age",
+                            "MaxHP over Age"
+                        );
                         break;
 
                     // Restpuls over weight
                     case 1:
                         // Updates the chart
-                        this.staChartDisplay.DataBindTable(this.DB.SelectAsTable(DBQuerys.select_RestpulsOverWeight).DefaultView, "weight");
-                        this.staChartDisplay.Series[0].Name = "Restpulse over weight";
+                        LoadDT(
+                            await this.DB.SelectAsTableAsync(DBQuerys.select_RestpulsOverWeight),
+                            "weight",
+                            "Restpulse over weight"
+                        );
                         break;
                 }
 
