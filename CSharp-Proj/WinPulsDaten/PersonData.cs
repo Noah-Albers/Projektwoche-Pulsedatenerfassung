@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WinPulsDaten
 {
@@ -14,11 +10,11 @@ namespace WinPulsDaten
         public string ConfPassword { get; private set; }
         public float Wight { get; private set; }
         public float Size { get; private set; }
-        public string Gender { get; private set; }
+        public int Gender { get; private set; }
         public DateTime Age { get; private set; }
         public float HpMax { get; private set; }
 
-        public PersonData(string firstname, string lastname, string password, string confPassword, float wight, float size, string gender, DateTime age, float hpMax)
+        public PersonData(string firstname, string lastname, string password, string confPassword, float wight, float size, int gender, DateTime age, float hpMax)
         {
             Firstname = firstname;
             Lastname = lastname;

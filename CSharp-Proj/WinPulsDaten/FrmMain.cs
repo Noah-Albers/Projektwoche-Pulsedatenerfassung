@@ -12,7 +12,7 @@ namespace WinPulsDaten
         public FrmMain()
         {
             InitializeComponent();
-           
+            this.tabControll_TabIndexChanged();
         }
 
 
@@ -28,7 +28,7 @@ namespace WinPulsDaten
         }
 
 
-        private void tabControll_TabIndexChanged(object sender, EventArgs e)
+        private void tabControll_TabIndexChanged(object sender = null, EventArgs e = null)
         {
             // Checks for the tab changes and executes their events
 
