@@ -105,6 +105,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBQuerys.resx</DependentUpon>
     </Compile>
+    <Compile Include="form\TabRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\TabStatusAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,5 +150,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

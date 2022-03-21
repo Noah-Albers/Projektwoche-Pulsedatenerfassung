@@ -30,12 +30,12 @@ namespace WinPulsDaten
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabRegister = new System.Windows.Forms.TabPage();
             this.regTbFirstname = new System.Windows.Forms.TextBox();
@@ -85,6 +85,7 @@ namespace WinPulsDaten
             this.perLbActivity = new System.Windows.Forms.Label();
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
+            this.tabWelcome = new System.Windows.Forms.TabPage();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHp.SuspendLayout();
@@ -107,6 +108,7 @@ namespace WinPulsDaten
             this.tabControll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControll.Controls.Add(this.tabWelcome);
             this.tabControll.Controls.Add(this.tabRegister);
             this.tabControll.Controls.Add(this.tabLogin);
             this.tabControll.Controls.Add(this.tabStatsAll);
@@ -478,16 +480,16 @@ namespace WinPulsDaten
             // 
             // staChartDisplay
             // 
-            chartArea5.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend1);
             this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.staChartDisplay.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.staChartDisplay.Series.Add(series1);
             this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
@@ -524,16 +526,16 @@ namespace WinPulsDaten
             // 
             // chart2
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(308, 33);
             this.chart2.Name = "chart2";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart2.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(300, 300);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
@@ -612,6 +614,15 @@ namespace WinPulsDaten
             this.perCbActivity.Name = "perCbActivity";
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
+            // 
+            // tabWelcome
+            // 
+            this.tabWelcome.Location = new System.Drawing.Point(4, 22);
+            this.tabWelcome.Name = "tabWelcome";
+            this.tabWelcome.Size = new System.Drawing.Size(768, 546);
+            this.tabWelcome.TabIndex = 6;
+            this.tabWelcome.Text = "Welcome";
+            this.tabWelcome.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -696,5 +707,6 @@ namespace WinPulsDaten
         private System.Windows.Forms.ComboBox staCbMode;
         private System.Windows.Forms.DateTimePicker regDpAge;
         private System.Windows.Forms.TextBox regTbFirstname;
+        private System.Windows.Forms.TabPage tabWelcome;
     }
 }
