@@ -16,5 +16,15 @@ namespace WinPulsDaten
         {
             InitializeComponent();
         }
+
+        private void regLbKG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void perLbTrainingHeartRade_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
