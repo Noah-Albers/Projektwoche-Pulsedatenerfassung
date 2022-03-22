@@ -20,23 +20,32 @@ namespace WinPulsDaten
         private async void setBtnDelte_Click(object sender, EventArgs e)
         {
             if (setChbDeleteSuperUser.Checked)
-
+                // When checkbox is checked delete all user and pulsdate
                 try
                 {
-                    await this.DB.InsertAsync(DBQuerys.truncate_PulsdateAndPerson);
+                    await this.DB.InsertAsync(DBQuerys.delete_Pulsdate);
+                    await this.DB.InsertAsync(DBQuerys.delete_Person);
+                    User = null;
+                    UpdateTabs();
                 }
                 catch(Exception ex)
                 {
                     Console.WriteLine(ex);
                     //TODO: handle error e
                 }
-
-
-                
             else
-                Console.WriteLine("Todo");
-            //todo
-
+                // Delete no super user
+                try
+                {
+                    await this.DB.InsertAsync(DBQuerys.delete_Pulsdate);
+                    await this.DB.InsertAsync(DBQuerys.delete_WithoutSuperUser);
+                    MessageBox.Show("All data successful deleted");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    //TODO: handle error e
+                }
         }
 
     }

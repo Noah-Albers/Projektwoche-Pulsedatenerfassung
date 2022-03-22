@@ -61,6 +61,33 @@ namespace WinPulsDaten.database {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DELETE FROM `person` ähnelt.
+        /// </summary>
+        internal static string delete_Person {
+            get {
+                return ResourceManager.GetString("delete.Person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DELETE FROM  `pulsdata` ähnelt.
+        /// </summary>
+        internal static string delete_Pulsdate {
+            get {
+                return ResourceManager.GetString("delete.Pulsdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DELETE FROM `person` WHERE IsSuperuser != true ähnelt.
+        /// </summary>
+        internal static string delete_WithoutSuperUser {
+            get {
+                return ResourceManager.GetString("delete.WithoutSuperUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die INSERT INTO `person` (`ID`, `Firstname`, `Lastname`, `Birthday`, `Gender`, `Bodysize`, `Weight`, `TrainingCondition`, `HFmax`, `Passwd`, `PassSalt`, `IsSuperuser`) VALUES (NULL, @fname, @lname, @birth, @gender, @bodysize, @weight, @condition, @hfmax, SHA2(CONCAT(@passwd,@salt),256), @salt, @isSup); ähnelt.
         /// </summary>
         internal static string insert_createUser {
@@ -130,15 +157,6 @@ namespace WinPulsDaten.database {
         internal static string select_RestpulsOverWeight {
             get {
                 return ResourceManager.GetString("select.RestpulsOverWeight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die TRUNCATE TABLE `person`;TRUNCATE TABLE `pulsdata`; ähnelt.
-        /// </summary>
-        internal static string truncate_PulsdateAndPerson {
-            get {
-                return ResourceManager.GetString("truncate.PulsdateAndPerson", resourceCulture);
             }
         }
     }

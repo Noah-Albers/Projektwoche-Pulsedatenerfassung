@@ -78,6 +78,7 @@ namespace WinPulsDaten
             this.staCbMode = new System.Windows.Forms.ComboBox();
             this.staChartDisplay = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabSettings = new System.Windows.Forms.TabPage();
+            this.setChbDeleteSuperUser = new System.Windows.Forms.CheckBox();
             this.setBtnDelte = new System.Windows.Forms.Button();
             this.tabAnalysisMe = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@ namespace WinPulsDaten
             this.perLbActivity = new System.Windows.Forms.Label();
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
-            this.setChbDeleteSuperUser = new System.Windows.Forms.CheckBox();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHp.SuspendLayout();
@@ -553,6 +553,16 @@ namespace WinPulsDaten
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
             // 
+            // setChbDeleteSuperUser
+            // 
+            this.setChbDeleteSuperUser.AutoSize = true;
+            this.setChbDeleteSuperUser.Location = new System.Drawing.Point(138, 146);
+            this.setChbDeleteSuperUser.Name = "setChbDeleteSuperUser";
+            this.setChbDeleteSuperUser.Size = new System.Drawing.Size(115, 17);
+            this.setChbDeleteSuperUser.TabIndex = 1;
+            this.setChbDeleteSuperUser.Text = "Delete super user?";
+            this.setChbDeleteSuperUser.UseVisualStyleBackColor = true;
+            // 
             // setBtnDelte
             // 
             this.setBtnDelte.Location = new System.Drawing.Point(138, 169);
@@ -680,16 +690,6 @@ namespace WinPulsDaten
             this.perCbActivity.Name = "perCbActivity";
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
-            // 
-            // setChbDeleteSuperUser
-            // 
-            this.setChbDeleteSuperUser.AutoSize = true;
-            this.setChbDeleteSuperUser.Location = new System.Drawing.Point(138, 146);
-            this.setChbDeleteSuperUser.Name = "setChbDeleteSuperUser";
-            this.setChbDeleteSuperUser.Size = new System.Drawing.Size(115, 17);
-            this.setChbDeleteSuperUser.TabIndex = 1;
-            this.setChbDeleteSuperUser.Text = "Delete super user?";
-            this.setChbDeleteSuperUser.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
