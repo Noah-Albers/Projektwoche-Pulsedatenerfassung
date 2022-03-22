@@ -30,12 +30,12 @@ namespace WinPulsDaten
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabWelcome = new System.Windows.Forms.TabPage();
             this.tabRegister = new System.Windows.Forms.TabPage();
@@ -78,6 +78,7 @@ namespace WinPulsDaten
             this.staCbMode = new System.Windows.Forms.ComboBox();
             this.staChartDisplay = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabSettings = new System.Windows.Forms.TabPage();
+            this.setChbDeleteSuperUser = new System.Windows.Forms.CheckBox();
             this.setBtnDelte = new System.Windows.Forms.Button();
             this.tabAnalysisMe = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@ namespace WinPulsDaten
             this.perLbActivity = new System.Windows.Forms.Label();
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
-            this.setChbDeleteSuperUser = new System.Windows.Forms.CheckBox();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHp.SuspendLayout();
@@ -120,6 +120,7 @@ namespace WinPulsDaten
             this.tabControll.Controls.Add(this.tabSettings);
             this.tabControll.Controls.Add(this.tabAnalysisMe);
             this.tabControll.Controls.Add(this.tabPersonalData);
+            this.tabControll.Enabled = false;
             this.tabControll.Location = new System.Drawing.Point(12, 12);
             this.tabControll.Name = "tabControll";
             this.tabControll.SelectedIndex = 0;
@@ -195,7 +196,7 @@ namespace WinPulsDaten
             this.regCbTrainingCondition.Name = "regCbTrainingCondition";
             this.regCbTrainingCondition.Size = new System.Drawing.Size(168, 21);
             this.regCbTrainingCondition.TabIndex = 25;
-            this.regCbTrainingCondition.SelectedIndexChanged += new System.EventHandler(this.regCbTrainingCondition_SelectedIndexChanged);
+            this.regCbTrainingCondition.SelectedIndexChanged += new System.EventHandler(this.OnRegHFValueChange);
             // 
             // regTbFirstname
             // 
@@ -208,7 +209,7 @@ namespace WinPulsDaten
             // 
             this.regDpBirth.Location = new System.Drawing.Point(103, 382);
             this.regDpBirth.Name = "regDpBirth";
-            this.regDpBirth.Size = new System.Drawing.Size(165, 20);
+            this.regDpBirth.Size = new System.Drawing.Size(330, 20);
             this.regDpBirth.TabIndex = 11;
             // 
             // regPanHp
@@ -227,7 +228,7 @@ namespace WinPulsDaten
             this.regNudHpMax.DecimalPlaces = 2;
             this.regNudHpMax.Location = new System.Drawing.Point(4, 50);
             this.regNudHpMax.Maximum = new decimal(new int[] {
-            150,
+            500,
             0,
             0,
             0});
@@ -307,16 +308,31 @@ namespace WinPulsDaten
             // regNutSize
             // 
             this.regNutSize.DecimalPlaces = 2;
+            this.regNutSize.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.regNutSize.Location = new System.Drawing.Point(282, 227);
             this.regNutSize.Maximum = new decimal(new int[] {
             250,
             0,
             0,
             0});
+            this.regNutSize.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.regNutSize.Name = "regNutSize";
             this.regNutSize.Size = new System.Drawing.Size(148, 20);
             this.regNutSize.TabIndex = 6;
-            this.regNutSize.ValueChanged += new System.EventHandler(this.regNutSize_ValueChanged);
+            this.regNutSize.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.regNutSize.ValueChanged += new System.EventHandler(this.OnRegHFValueChange);
             // 
             // regNudWight
             // 
@@ -326,10 +342,20 @@ namespace WinPulsDaten
             0,
             0,
             0});
+            this.regNudWight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.regNudWight.Name = "regNudWight";
             this.regNudWight.Size = new System.Drawing.Size(151, 20);
             this.regNudWight.TabIndex = 5;
-            this.regNudWight.ValueChanged += new System.EventHandler(this.regNudWight_ValueChanged);
+            this.regNudWight.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.regNudWight.ValueChanged += new System.EventHandler(this.OnRegHFValueChange);
             // 
             // regLbGender
             // 
@@ -344,11 +370,14 @@ namespace WinPulsDaten
             // 
             this.regCbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.regCbGender.FormattingEnabled = true;
+            this.regCbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
             this.regCbGender.Location = new System.Drawing.Point(103, 280);
             this.regCbGender.Name = "regCbGender";
             this.regCbGender.Size = new System.Drawing.Size(168, 21);
             this.regCbGender.TabIndex = 10;
-            this.regCbGender.SelectedIndexChanged += new System.EventHandler(this.regCbGender_SelectedIndexChanged);
+            this.regCbGender.SelectedIndexChanged += new System.EventHandler(this.OnRegHFValueChange);
             // 
             // regLbConfrimPassword
             // 
@@ -528,16 +557,16 @@ namespace WinPulsDaten
             // 
             // staChartDisplay
             // 
-            chartArea1.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend3);
             this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.staChartDisplay.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.staChartDisplay.Series.Add(series3);
             this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
@@ -552,6 +581,16 @@ namespace WinPulsDaten
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
+            // 
+            // setChbDeleteSuperUser
+            // 
+            this.setChbDeleteSuperUser.AutoSize = true;
+            this.setChbDeleteSuperUser.Location = new System.Drawing.Point(138, 146);
+            this.setChbDeleteSuperUser.Name = "setChbDeleteSuperUser";
+            this.setChbDeleteSuperUser.Size = new System.Drawing.Size(115, 17);
+            this.setChbDeleteSuperUser.TabIndex = 1;
+            this.setChbDeleteSuperUser.Text = "Delete super user?";
+            this.setChbDeleteSuperUser.UseVisualStyleBackColor = true;
             // 
             // setBtnDelte
             // 
@@ -602,16 +641,16 @@ namespace WinPulsDaten
             this.anmeChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.anmeChartDisplay.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.anmeChartDisplay.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.anmeChartDisplay.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.anmeChartDisplay.Legends.Add(legend4);
             this.anmeChartDisplay.Location = new System.Drawing.Point(3, 51);
             this.anmeChartDisplay.Name = "anmeChartDisplay";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.anmeChartDisplay.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.anmeChartDisplay.Series.Add(series4);
             this.anmeChartDisplay.Size = new System.Drawing.Size(762, 492);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";
@@ -681,16 +720,6 @@ namespace WinPulsDaten
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
             // 
-            // setChbDeleteSuperUser
-            // 
-            this.setChbDeleteSuperUser.AutoSize = true;
-            this.setChbDeleteSuperUser.Location = new System.Drawing.Point(138, 146);
-            this.setChbDeleteSuperUser.Name = "setChbDeleteSuperUser";
-            this.setChbDeleteSuperUser.Size = new System.Drawing.Size(115, 17);
-            this.setChbDeleteSuperUser.TabIndex = 1;
-            this.setChbDeleteSuperUser.Text = "Delete super user?";
-            this.setChbDeleteSuperUser.UseVisualStyleBackColor = true;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -735,7 +764,6 @@ namespace WinPulsDaten
         private System.Windows.Forms.Button regBtnLogin;
         private System.Windows.Forms.TextBox logTbPassword;
         private System.Windows.Forms.Button logBtnLogin;
-        private System.Windows.Forms.ComboBox regCbGender;
         private System.Windows.Forms.Label regLbConfrimPassword;
         private System.Windows.Forms.Label regLbPassword;
         private System.Windows.Forms.TextBox regTbLastname;
@@ -782,5 +810,6 @@ namespace WinPulsDaten
         private System.Windows.Forms.Label regLbTraincondition;
         private System.Windows.Forms.ComboBox regCbTrainingCondition;
         private System.Windows.Forms.CheckBox setChbDeleteSuperUser;
+        private System.Windows.Forms.ComboBox regCbGender;
     }
 }

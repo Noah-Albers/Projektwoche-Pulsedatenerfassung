@@ -21,19 +21,35 @@ namespace WinPulsDaten
         private bool IsRegisterHFAuto => this.regRadHPAuto.Checked;
 
         // Event: Whenever an element that is required to calculate the hf-max get's changed
-        private void OnRegHFValueChange()
+        private void OnRegHFValueChange(object _1 = null, EventArgs _2 = null)
         {
             // Checks if the calculation is disabled
             if (this.regRadHFManual.Checked)
                 return;
 
+            // Checks if the trainingcondition hasn't been loaded
+            if (this.regCbTrainingCondition.SelectedIndex == -1)
+                return;
+
             // Gets the values important to calculate
+            var isMale = this.regCbGender.SelectedIndex == 0;
+            var condition = ((Trainingcondition)this.regCbTrainingCondition.SelectedItem);
+
+            // Gets the persons age
+            int age = (int)(DateTime.Now.Subtract(this.regDpBirth.Value).TotalDays / 356);
+
+            // Gets the caluator function and executes it
+            int hfmax = HillsCalculations.GetCalculationFunction(isMale, condition)(age);
+
+            // Updates the ui
+            this.regNudHpMax.Value = hfmax;
         }
 
         private void tabRegisterSelect()
         {
             regRadHPAuto.Checked = true;
             regDpBirth.MaxDate = DateTime.Now;
+            regCbGender.SelectedIndex = 0;
             regLoadData();
         }
 
@@ -42,19 +58,8 @@ namespace WinPulsDaten
         {
             try
             {
-                // Loads the genders and training conditions
-                await DB.EnsureConnectionAsync();
-
-                var tskGender = DB.SelectAsTableAsync(DBQuerys.select_AllGender);
-                var tskCond = DB.SelectAsTableAsync(DBQuerys.select_AllTrainingCondition);
-
-                // Waits until both tasks have finished (or died)
-                await tskGender;
-                await tskCond;
-
                 // Updates the form
-                this.regCbGender.LoadFromTable(tskGender.Result, Gender.Create);
-                this.regCbTrainingCondition.LoadFromTable(tskCond.Result, Trainingcondition.Create);
+                this.regCbTrainingCondition.LoadFromTable(await DB.SelectAsTableAsync(DBQuerys.select_AllTrainingCondition), Trainingcondition.Create);
             }
             catch(Exception ex)
             {
@@ -63,7 +68,7 @@ namespace WinPulsDaten
         }
 
 
-       
+       // Event: When the user clicks the register button
         private async void regBtnLogin_Click(object sender, EventArgs e)
         {
 
@@ -83,7 +88,7 @@ namespace WinPulsDaten
             var pwd = regTbPassword.Text.ToString();
             var weight = (float)regNudWight.Value;
             var size = (float)regNutSize.Value;
-            var genderId = ((Gender)this.regCbGender.SelectedItem).ID;
+            var isMale = this.regCbGender.SelectedIndex == 0;
             var conditionId = ((Trainingcondition)this.regCbTrainingCondition.SelectedItem).ID;
             var birth = regDpBirth.Value;
             var hfmax = (float)regNudHpMax.Value;
@@ -117,18 +122,6 @@ namespace WinPulsDaten
                 return;
             }
 
-            if (weight <= 0)
-            {
-                MessageBox.Show("Wight is requried");
-                return;
-            }
-
-            if (size <= 0)
-            {
-                MessageBox.Show("Size is requried");
-                return;
-            }
-
             if (hfmax <= 0)
             {
                 MessageBox.Show("HF is requried");
@@ -155,7 +148,7 @@ namespace WinPulsDaten
                 cmd.Parameters.AddWithValue("@fname",fname);
                 cmd.Parameters.AddWithValue("@lname",lname);
                 cmd.Parameters.AddWithValue("@birth",birth);
-                cmd.Parameters.AddWithValue("@gender",genderId);
+                cmd.Parameters.AddWithValue("@gender",isMale);
                 cmd.Parameters.AddWithValue("@bodysize",size);
                 cmd.Parameters.AddWithValue("@weight",weight);
                 cmd.Parameters.AddWithValue("@condition", conditionId);
@@ -179,6 +172,20 @@ namespace WinPulsDaten
                 // TODO: Handle error
             }
 
+        }
+
+        // Event: When the caulation gets changed to manual
+        private void regRadHFManual_CheckedChanged(object sender, EventArgs e)
+        {
+            this.regNudHpMax.Enabled = true;
+            this.OnRegHFValueChange();
+        }
+
+        // Event: When the caulation gets changed to auto
+        private void regRadHPAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            this.regNudHpMax.Enabled = false;
+            this.OnRegHFValueChange();
         }
     }
 
