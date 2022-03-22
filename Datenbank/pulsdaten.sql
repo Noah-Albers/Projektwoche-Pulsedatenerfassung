@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Mrz 2022 um 08:18
+-- Erstellungszeit: 22. Mrz 2022 um 08:57
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 7.3.31
 
@@ -42,25 +42,6 @@ INSERT INTO `activity` (`Id`, `Name`, `Factor`) VALUES
 (2, 'Trainingspuls', NULL),
 (3, 'Intervallmethode', '0.8'),
 (4, 'Dauermethode', '0.6');
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `gender`
---
-
-CREATE TABLE `gender` (
-  `ID` int(1) NOT NULL,
-  `Name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `gender`
---
-
-INSERT INTO `gender` (`ID`, `Name`) VALUES
-(1, 'Male'),
-(2, 'Female');
 
 -- --------------------------------------------------------
 
@@ -180,12 +161,6 @@ ALTER TABLE `activity`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indizes für die Tabelle `gender`
---
-ALTER TABLE `gender`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indizes für die Tabelle `person`
 --
 ALTER TABLE `person`
@@ -237,8 +212,7 @@ ALTER TABLE `trainingcondition`
 -- Constraints der Tabelle `person`
 --
 ALTER TABLE `person`
-  ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`TrainingCondition`) REFERENCES `trainingcondition` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `person_ibfk_2` FOREIGN KEY (`Gender`) REFERENCES `gender` (`ID`);
+  ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`TrainingCondition`) REFERENCES `trainingcondition` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints der Tabelle `pulsdata`

@@ -20,9 +20,14 @@ namespace WinPulsDaten
         /// </summary>
         private bool IsRegisterHFAuto => this.regRadHPAuto.Checked;
 
-        private void RegCalculateHF()
+        // Event: Whenever an element that is required to calculate the hf-max get's changed
+        private void OnRegHFValueChange()
         {
+            // Checks if the calculation is disabled
+            if (this.regRadHFManual.Checked)
+                return;
 
+            // Gets the values important to calculate
         }
 
         private void tabRegisterSelect()
