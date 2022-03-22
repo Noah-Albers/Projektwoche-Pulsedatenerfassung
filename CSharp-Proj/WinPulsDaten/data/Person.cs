@@ -12,7 +12,7 @@ namespace WinPulsDaten.data
         public float Size;
         public int Gender;
         public DateTime Birth;
-        public float HpMax;
+        public float HfMax;
         public bool isSup;
 
 
@@ -27,7 +27,7 @@ namespace WinPulsDaten.data
             Lastname = (string)row["lname"],
             Birth = (DateTime)row["birthday"],
             Gender = (int)row["gender"],
-            HpMax = (int)row["hfmax"],
+            HfMax = (int)row["hfmax"],
             Size = (float)(decimal)row["size"],
             Weight = (int)row["weight"],
             isSup = (ulong)row["isSup"] == 1

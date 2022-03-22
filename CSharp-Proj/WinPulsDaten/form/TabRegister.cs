@@ -37,13 +37,13 @@ namespace WinPulsDaten
             int hfmax = HillsCalculations.GetCalculationFunction(isMale, condition)(age);
 
             // Updates the ui
-            this.regNudHpMax.Value = hfmax;
+            this.regNudHfMax.Value = hfmax;
         }
 
         // Event: When this tab gets selected
         private async void tabRegisterSelect()
         {
-            regRadHPAuto.Checked = true;
+            regRadHfAuto.Checked = true;
             regDpBirth.MaxDate = DateTime.Now;
             regCbGender.SelectedIndex = 0;
 
@@ -81,11 +81,11 @@ namespace WinPulsDaten
             var lname = regTbLastname.Text.ToString();
             var pwd = regTbPassword.Text.ToString();
             var weight = (float)regNudWight.Value;
-            var size = (float)regNutSize.Value;
+            var size = (float)regNudSize.Value;
             var isMale = this.regCbGender.SelectedIndex == 0;
             var conditionId = ((Trainingcondition)this.regCbTrainingCondition.SelectedItem).ID;
             var birth = regDpBirth.Value;
-            var hfmax = (float)regNudHpMax.Value;
+            var hfmax = (float)regNudHfMax.Value;
 
 
             /*
@@ -171,15 +171,32 @@ namespace WinPulsDaten
         // Event: When the caulation gets changed to manual
         private void OnRegSelectMangualHF(object sender, EventArgs e)
         {
-            this.regNudHpMax.Enabled = true;
+            this.regNudHfMax.Enabled = true;
             this.OnRegHFValueChange();
         }
 
         // Event: When the caulation gets changed to auto
-        private void regRadHPAuto_CheckedChanged(object sender, EventArgs e)
+        private void regRadHfAuto_CheckedChanged(object sender, EventArgs e)
         {
-            this.regNudHpMax.Enabled = false;
+            this.regNudHfMax.Enabled = false;
             this.OnRegHFValueChange();
+        }
+
+        // Event: When the info-icon get's clicked
+        private void regBtnInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "The HF-Max value is your maximum puls.\n" +
+                "It can be inserted when obtained from a" + 
+                "doctor or calculated by this equation:\n" + 
+                "base - (factor * age)\n\n" + 
+                "The base and factor are values which are based\n" + 
+                "on your training condition and if your male or female.\n" + 
+                "Factor is between 0.5 and 0.8\n" + 
+                "Base is between 220 and 200.", "Infos about the HF-Max-Value",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
     }
 

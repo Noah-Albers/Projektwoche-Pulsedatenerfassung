@@ -106,11 +106,11 @@ namespace WinPulsDaten.database {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT g.ID id, g.Name name FROM `gender` g; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Name name,null factor FROM `activity` a where Factor is not null; ähnelt.
         /// </summary>
-        internal static string select_AllGender {
+        internal static string select_activitysWithFactor {
             get {
-                return ResourceManager.GetString("select.AllGender", resourceCulture);
+                return ResourceManager.GetString("select.activitysWithFactor", resourceCulture);
             }
         }
         

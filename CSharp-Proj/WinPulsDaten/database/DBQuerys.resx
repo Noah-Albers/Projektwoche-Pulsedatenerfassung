@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="select.AllGender" xml:space="preserve">
-    <value>SELECT g.ID id, g.Name name FROM `gender` g;</value>
-    <comment>Select all gender for regsiter new user</comment>
-  </data>
   <data name="select.AllTrainingCondition" xml:space="preserve">
     <value>SELECT t.ID id, t.Name name FROM `trainingcondition` t</value>
     <comment>Select all training conditon</comment>
@@ -131,7 +127,7 @@
   </data>
   <data name="select.HfOverAge" xml:space="preserve">
     <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hf, FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365) age FROM `person` p group by age order by 2;</value>
-    <comment>Selects all HpMax-Values and assignes them to the age of the user (Also ordered by age decreasing)</comment>
+    <comment>Selects all HfMax-Values and assignes them to the age of the user (Also ordered by age decreasing)</comment>
   </data>
   <data name="select.personPulseOverTime" xml:space="preserve">
     <value>SELECT pld.RecordTime time, pld.Value val FROM person p JOIN pulsdata pld on pld.person = p.ID where p.ID = @person and pld.Activity = @activity order by 1</value>
@@ -164,5 +160,8 @@ a.Id = 1 group by p.ID order by 2</value>
   <data name="select.criticalPulses" xml:space="preserve">
     <value>SELECT pld.Value val, pld.RecordTime time FROM `pulsdata` pld JOIN Person p on p.ID = pld.Person where p.ID = @person and pld.Activity = @activity and pld.Value &gt;= (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365))</value>
     <comment>Selects all pulses from a person that are over their critical limit</comment>
+  </data>
+  <data name="select.activitysWithFactor" xml:space="preserve">
+    <value>SELECT a.Id id,a.Name name,null factor FROM `activity` a where Factor is not null;</value>
   </data>
 </root>

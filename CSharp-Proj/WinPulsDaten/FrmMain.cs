@@ -84,7 +84,5 @@ namespace WinPulsDaten
             else if (this.tabControll.SelectedTab.Equals(this.tabPersonalData))
                 this.tabPersonalDataSelect();
         }
-
-       
     }
 }

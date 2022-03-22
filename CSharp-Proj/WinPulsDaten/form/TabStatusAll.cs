@@ -35,7 +35,7 @@ namespace WinPulsDaten
                 // Checks which display got selected
                 switch (this.staCbMode.SelectedIndex)
                 {
-                    // Age over hp
+                    // Age over hf
                     case 0:
                         // Updates the chart
                         LoadDT(

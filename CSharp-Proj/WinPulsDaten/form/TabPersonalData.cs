@@ -19,14 +19,20 @@ namespace WinPulsDaten
             this.pdLbFirstname.Text = User.Firstname;
             this.pdLbLastname.Text = User.Lastname;
             this.pdLbSize.Text = User.Size.ToString() + " m";
-            this.pdLbWight.Text = User.Weight.ToString() + " kg";
+            this.pdLbWeight.Text = User.Weight.ToString() + " kg";
         }
 
         private async void prelod()
         {
-            var tbl = await this.DB.SelectAsTableAsync(DBQuerys.select_activitys);
+            try
+            {
+                var tbl = await this.DB.SelectAsTableAsync(DBQuerys.select_activitysWithFactor);
 
-            this.perCbActivity.LoadFromTable(tbl, Activity.Create);
+                this.perCbActivity.LoadFromTable(tbl, Activity.Create);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
         }
 
@@ -42,10 +48,7 @@ namespace WinPulsDaten
         }
         private void calcuateTrainingHeartRate()
         {
-            if (((Activity)perCbActivity.SelectedItem).Factor == null)
-                perNudTrainingHeartRade.Value = ((decimal)User.HpMax - perNudRestingPulse.Value) * 0 + perNudRestingPulse.Value;
-            else
-                perNudTrainingHeartRade.Value = ((decimal)User.HpMax - perNudRestingPulse.Value) * (decimal)((Activity)perCbActivity.SelectedItem).Factor + perNudRestingPulse.Value;
+            perNudTrainingHeartRade.Value = ((decimal)User.HfMax - perNudRestingPulse.Value) * (decimal)((Activity)perCbActivity.SelectedItem).Factor + perNudRestingPulse.Value;
         }
 
 
