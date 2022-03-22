@@ -106,6 +106,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBQuerys.resx</DependentUpon>
     </Compile>
+    <Compile Include="data\Trainingcondition.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="form\TabAnalysisMe.cs">
       <SubType>Form</SubType>
@@ -127,6 +128,7 @@
     </Compile>
     <Compile Include="data\Gender.cs" />
     <Compile Include="data\Person.cs" />
+    <Compile Include="HillsCalculations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="database\DBQuerys.resx">

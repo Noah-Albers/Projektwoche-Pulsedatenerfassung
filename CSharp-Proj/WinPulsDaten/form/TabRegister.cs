@@ -15,27 +15,41 @@ namespace WinPulsDaten
     public partial class FrmMain
     {
 
-        private void tabRegisterSelect()
+        /// <summary>
+        /// Checks if on this card the autocalculation is activated
+        /// </summary>
+        private bool IsRegisterHFAuto => this.regRadHPAuto.Checked;
+
+        private void RegCalculateHF()
         {
-            regCbGender.SelectedIndex = 0;
-            regRadHPAuto.Checked = true;
-            regDpBirth.MaxDate = DateTime.Now;
-            regNewUser();
+
         }
 
-          /*
-           * @params:   null
-           * @handle:   sql query from gender and training condition
-           * @return:   void
-           * @author:   Florian Keller <2022/03/21 12:40>
-           */
-        private async void regNewUser()
+        private void tabRegisterSelect()
+        {
+            regRadHPAuto.Checked = true;
+            regDpBirth.MaxDate = DateTime.Now;
+            regLoadData();
+        }
+
+        
+        private async void regLoadData()
         {
             try
             {
-                var tbl = await DB.SelectAsTableAsync(DBQuerys.select_AllGender);
+                // Loads the genders and training conditions
+                await DB.EnsureConnectionAsync();
 
-                this.regCbGender.LoadFromTable(tbl, Gender.Create);
+                var tskGender = DB.SelectAsTableAsync(DBQuerys.select_AllGender);
+                var tskCond = DB.SelectAsTableAsync(DBQuerys.select_AllTrainingCondition);
+
+                // Waits until both tasks have finished (or died)
+                await tskGender;
+                await tskCond;
+
+                // Updates the form
+                this.regCbGender.LoadFromTable(tskGender.Result, Gender.Create);
+                this.regCbTrainingCondition.LoadFromTable(tskCond.Result, Trainingcondition.Create);
             }
             catch(Exception ex)
             {
@@ -44,14 +58,16 @@ namespace WinPulsDaten
         }
 
 
-        /*
-         * @params: System
-         * @handle: Regsiter new User with valdiation
-         * @retrun: Void
-         * @author: Florian Keller <2022/03/21 12:20>
-         */
+       
         private async void regBtnLogin_Click(object sender, EventArgs e)
         {
+
+            // Ensures that values got loaded from the database
+            if(this.regCbGender.SelectedIndex == -1 || this.regCbTrainingCondition.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please wait until the datbase-values have been loaded.","Error");
+                return;
+            }
 
             /*
              * Create new pd refercenz
@@ -63,6 +79,7 @@ namespace WinPulsDaten
             var weight = (float)regNudWight.Value;
             var size = (float)regNutSize.Value;
             var genderId = ((Gender)this.regCbGender.SelectedItem).ID;
+            var conditionId = ((Trainingcondition)this.regCbTrainingCondition.SelectedItem).ID;
             var birth = regDpBirth.Value;
             var hfmax = (float)regNudHpMax.Value;
 
@@ -136,7 +153,7 @@ namespace WinPulsDaten
                 cmd.Parameters.AddWithValue("@gender",genderId);
                 cmd.Parameters.AddWithValue("@bodysize",size);
                 cmd.Parameters.AddWithValue("@weight",weight);
-                cmd.Parameters.AddWithValue("@condition",1); //TODO: Implement the dropdown here
+                cmd.Parameters.AddWithValue("@condition", conditionId);
                 cmd.Parameters.AddWithValue("@hfmax",hfmax);
                 cmd.Parameters.AddWithValue("@passwd",pwd);
                 cmd.Parameters.AddWithValue("@salt",salt);

@@ -30,12 +30,12 @@ namespace WinPulsDaten
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabWelcome = new System.Windows.Forms.TabPage();
             this.tabRegister = new System.Windows.Forms.TabPage();
@@ -87,6 +87,9 @@ namespace WinPulsDaten
             this.perLbActivity = new System.Windows.Forms.Label();
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
+            this.regLbTraincondition = new System.Windows.Forms.Label();
+            this.regCbTrainingCondition = new System.Windows.Forms.ComboBox();
+            this.regLbBirth = new System.Windows.Forms.Label();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHp.SuspendLayout();
@@ -134,6 +137,9 @@ namespace WinPulsDaten
             // 
             // tabRegister
             // 
+            this.tabRegister.Controls.Add(this.regLbBirth);
+            this.tabRegister.Controls.Add(this.regLbTraincondition);
+            this.tabRegister.Controls.Add(this.regCbTrainingCondition);
             this.tabRegister.Controls.Add(this.regTbFirstname);
             this.tabRegister.Controls.Add(this.regDpBirth);
             this.tabRegister.Controls.Add(this.regPanHp);
@@ -171,7 +177,7 @@ namespace WinPulsDaten
             // 
             // regDpBirth
             // 
-            this.regDpBirth.Location = new System.Drawing.Point(282, 321);
+            this.regDpBirth.Location = new System.Drawing.Point(103, 382);
             this.regDpBirth.Name = "regDpBirth";
             this.regDpBirth.Size = new System.Drawing.Size(165, 20);
             this.regDpBirth.TabIndex = 11;
@@ -182,7 +188,7 @@ namespace WinPulsDaten
             this.regPanHp.Controls.Add(this.regNudHpMax);
             this.regPanHp.Controls.Add(this.regRadHPAuto);
             this.regPanHp.Controls.Add(this.regRadHFManual);
-            this.regPanHp.Location = new System.Drawing.Point(106, 284);
+            this.regPanHp.Location = new System.Drawing.Point(285, 280);
             this.regPanHp.Name = "regPanHp";
             this.regPanHp.Size = new System.Drawing.Size(148, 79);
             this.regPanHp.TabIndex = 24;
@@ -210,6 +216,7 @@ namespace WinPulsDaten
             this.regRadHPAuto.TabStop = true;
             this.regRadHPAuto.Text = "Calculate";
             this.regRadHPAuto.UseVisualStyleBackColor = true;
+            this.regRadHPAuto.CheckedChanged += new System.EventHandler(this.regRadHPAuto_CheckedChanged);
             // 
             // regRadHFManual
             // 
@@ -221,11 +228,12 @@ namespace WinPulsDaten
             this.regRadHFManual.TabStop = true;
             this.regRadHFManual.Text = "Assign yourself";
             this.regRadHFManual.UseVisualStyleBackColor = true;
+            this.regRadHFManual.CheckedChanged += new System.EventHandler(this.regRadHFManual_CheckedChanged);
             // 
             // regLbMaxHp
             // 
             this.regLbMaxHp.AutoSize = true;
-            this.regLbMaxHp.Location = new System.Drawing.Point(103, 268);
+            this.regLbMaxHp.Location = new System.Drawing.Point(282, 264);
             this.regLbMaxHp.Name = "regLbMaxHp";
             this.regLbMaxHp.Size = new System.Drawing.Size(75, 13);
             this.regLbMaxHp.TabIndex = 22;
@@ -279,6 +287,7 @@ namespace WinPulsDaten
             this.regNutSize.Name = "regNutSize";
             this.regNutSize.Size = new System.Drawing.Size(148, 20);
             this.regNutSize.TabIndex = 6;
+            this.regNutSize.ValueChanged += new System.EventHandler(this.regNutSize_ValueChanged);
             // 
             // regNudWight
             // 
@@ -291,11 +300,12 @@ namespace WinPulsDaten
             this.regNudWight.Name = "regNudWight";
             this.regNudWight.Size = new System.Drawing.Size(151, 20);
             this.regNudWight.TabIndex = 5;
+            this.regNudWight.ValueChanged += new System.EventHandler(this.regNudWight_ValueChanged);
             // 
             // regLbGender
             // 
             this.regLbGender.AutoSize = true;
-            this.regLbGender.Location = new System.Drawing.Point(282, 268);
+            this.regLbGender.Location = new System.Drawing.Point(103, 264);
             this.regLbGender.Name = "regLbGender";
             this.regLbGender.Size = new System.Drawing.Size(42, 13);
             this.regLbGender.TabIndex = 12;
@@ -305,13 +315,11 @@ namespace WinPulsDaten
             // 
             this.regCbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.regCbGender.FormattingEnabled = true;
-            this.regCbGender.Items.AddRange(new object[] {
-            "M",
-            "W"});
-            this.regCbGender.Location = new System.Drawing.Point(282, 284);
+            this.regCbGender.Location = new System.Drawing.Point(103, 280);
             this.regCbGender.Name = "regCbGender";
             this.regCbGender.Size = new System.Drawing.Size(168, 21);
             this.regCbGender.TabIndex = 10;
+            this.regCbGender.SelectedIndexChanged += new System.EventHandler(this.regCbGender_SelectedIndexChanged);
             // 
             // regLbConfrimPassword
             // 
@@ -372,11 +380,11 @@ namespace WinPulsDaten
             // 
             // regBtnLogin
             // 
-            this.regBtnLogin.Location = new System.Drawing.Point(200, 418);
+            this.regBtnLogin.Location = new System.Drawing.Point(200, 453);
             this.regBtnLogin.Name = "regBtnLogin";
             this.regBtnLogin.Size = new System.Drawing.Size(135, 23);
             this.regBtnLogin.TabIndex = 12;
-            this.regBtnLogin.Text = "button1";
+            this.regBtnLogin.Text = "Register";
             this.regBtnLogin.UseVisualStyleBackColor = true;
             this.regBtnLogin.Click += new System.EventHandler(this.regBtnLogin_Click);
             // 
@@ -491,16 +499,16 @@ namespace WinPulsDaten
             // 
             // staChartDisplay
             // 
-            chartArea5.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend5);
+            chartArea15.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend15);
             this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.staChartDisplay.Series.Add(series5);
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.staChartDisplay.Series.Add(series15);
             this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
@@ -563,16 +571,16 @@ namespace WinPulsDaten
             this.anmeChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.anmeChartDisplay.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.anmeChartDisplay.Legends.Add(legend6);
+            chartArea16.Name = "ChartArea1";
+            this.anmeChartDisplay.ChartAreas.Add(chartArea16);
+            legend16.Name = "Legend1";
+            this.anmeChartDisplay.Legends.Add(legend16);
             this.anmeChartDisplay.Location = new System.Drawing.Point(3, 51);
             this.anmeChartDisplay.Name = "anmeChartDisplay";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.anmeChartDisplay.Series.Add(series6);
+            series16.ChartArea = "ChartArea1";
+            series16.Legend = "Legend1";
+            series16.Name = "Series1";
+            this.anmeChartDisplay.Series.Add(series16);
             this.anmeChartDisplay.Size = new System.Drawing.Size(762, 492);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";
@@ -641,6 +649,34 @@ namespace WinPulsDaten
             this.perCbActivity.Name = "perCbActivity";
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
+            // 
+            // regLbTraincondition
+            // 
+            this.regLbTraincondition.AutoSize = true;
+            this.regLbTraincondition.Location = new System.Drawing.Point(103, 315);
+            this.regLbTraincondition.Name = "regLbTraincondition";
+            this.regLbTraincondition.Size = new System.Drawing.Size(92, 13);
+            this.regLbTraincondition.TabIndex = 26;
+            this.regLbTraincondition.Text = "Training Condition";
+            // 
+            // regCbTrainingCondition
+            // 
+            this.regCbTrainingCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regCbTrainingCondition.FormattingEnabled = true;
+            this.regCbTrainingCondition.Location = new System.Drawing.Point(103, 331);
+            this.regCbTrainingCondition.Name = "regCbTrainingCondition";
+            this.regCbTrainingCondition.Size = new System.Drawing.Size(168, 21);
+            this.regCbTrainingCondition.TabIndex = 25;
+            this.regCbTrainingCondition.SelectedIndexChanged += new System.EventHandler(this.regCbTrainingCondition_SelectedIndexChanged);
+            // 
+            // regLbBirth
+            // 
+            this.regLbBirth.AutoSize = true;
+            this.regLbBirth.Location = new System.Drawing.Point(100, 366);
+            this.regLbBirth.Name = "regLbBirth";
+            this.regLbBirth.Size = new System.Drawing.Size(45, 13);
+            this.regLbBirth.TabIndex = 27;
+            this.regLbBirth.Text = "Birthday";
             // 
             // FrmMain
             // 
@@ -728,5 +764,8 @@ namespace WinPulsDaten
         private System.Windows.Forms.TabPage tabWelcome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox anmeCbActivity;
+        private System.Windows.Forms.Label regLbBirth;
+        private System.Windows.Forms.Label regLbTraincondition;
+        private System.Windows.Forms.ComboBox regCbTrainingCondition;
     }
 }

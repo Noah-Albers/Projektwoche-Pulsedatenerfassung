@@ -2,7 +2,7 @@
 
 namespace WinPulsDaten.data
 {
-    public class Gender
+    public class Trainingcondition
     {
         public int ID;
         public string Name;
@@ -11,7 +11,7 @@ namespace WinPulsDaten.data
 
 
         /// <summary>
-        /// Method to load a gender from a Datarow that got retreived from a database
+        /// Method to load a training-condition from a Datarow that got retreived from a database
         /// </summary>
         public static Gender Create(DataRow row)
         => new Gender

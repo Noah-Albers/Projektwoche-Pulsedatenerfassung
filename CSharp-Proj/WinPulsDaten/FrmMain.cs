@@ -68,5 +68,35 @@ namespace WinPulsDaten
             else if (this.tabControll.SelectedTab.Equals(this.tabAnalysisMe))
                 await this.tabAnalysisMeSelect();
         }
+
+        private void regRadHFManual_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regRadHPAuto_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regNutSize_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regNudWight_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regCbTrainingCondition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regCbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
