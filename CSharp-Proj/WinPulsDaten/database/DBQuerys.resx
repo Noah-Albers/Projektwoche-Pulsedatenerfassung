@@ -150,4 +150,8 @@ a.Id = 1 group by p.ID order by 2</value>
     <value>SELECT p.ID id, p.Firstname fname, p.Lastname lname, p.Birthday birthday, p.Gender gender, p.Bodysize size, p.Weight weight, p.TrainingCondition trainCondition, p.HFmax hfmax, p.IsSuperuser isSup FROM `person` p WHERE p.Firstname = @fname and p.Lastname = @lname and p.Passwd = SHA2(CONCAT(@passwd,p.PassSalt),256)</value>
     <comment>Tries to login the user and selects all required attriutes in the process.</comment>
   </data>
+  <data name="truncate.PulsdateAndPerson" xml:space="preserve">
+    <value>TRUNCATE TABLE `person`;TRUNCATE TABLE `pulsdata`;</value>
+    <comment>Deleted everything in person und pulsdate table</comment>
+  </data>
 </root>

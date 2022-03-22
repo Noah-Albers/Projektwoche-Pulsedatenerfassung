@@ -10,7 +10,12 @@ namespace WinPulsDaten
         private readonly Database DB = new Database("localhost", "pulsdaten", "root", "");
 
         // Login in user (Optional, if logged out this will be null)
-        private Person User;
+        private Person User = new Person
+        {
+            Firstname = "Billy",
+            Lastname = "Butcher",
+            isSup = true
+        };
 
         // Random generator (Handy to have around)
         private readonly Random rdm = new Random();
@@ -67,6 +72,9 @@ namespace WinPulsDaten
 
             else if (this.tabControll.SelectedTab.Equals(this.tabAnalysisMe))
                 await this.tabAnalysisMeSelect();
+
+            else if (this.tabControll.SelectedTab.Equals(this.tabSettings))
+                this.tabSettingsSelect();
         }
 
         private void regRadHFManual_CheckedChanged(object sender, EventArgs e)

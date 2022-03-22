@@ -117,6 +117,9 @@
     <Compile Include="form\TabRegister.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="form\TabSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="form\TabStatusAll.cs">
       <SubType>Form</SubType>
     </Compile>
