@@ -15,11 +15,6 @@ namespace WinPulsDaten
     public partial class FrmMain
     {
 
-        /// <summary>
-        /// Checks if on this card the autocalculation is activated
-        /// </summary>
-        private bool IsRegisterHFAuto => this.regRadHPAuto.Checked;
-
         // Event: Whenever an element that is required to calculate the hf-max get's changed
         private void OnRegHFValueChange(object _1 = null, EventArgs _2 = null)
         {
@@ -45,31 +40,30 @@ namespace WinPulsDaten
             this.regNudHpMax.Value = hfmax;
         }
 
-        private void tabRegisterSelect()
+        // Event: When this tab gets selected
+        private async void tabRegisterSelect()
         {
             regRadHPAuto.Checked = true;
             regDpBirth.MaxDate = DateTime.Now;
             regCbGender.SelectedIndex = 0;
-            regLoadData();
-        }
 
-        
-        private async void regLoadData()
-        {
+            this.SetTabeable(false);
+
             try
             {
                 // Updates the form
                 this.regCbTrainingCondition.LoadFromTable(await DB.SelectAsTableAsync(DBQuerys.select_AllTrainingCondition), Trainingcondition.Create);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Unerwarteter Fehler aufgetraucht");
             }
+
+            this.SetTabeable(true);
         }
 
-
        // Event: When the user clicks the register button
-        private async void regBtnLogin_Click(object sender, EventArgs e)
+        private async void OnRegRegisterClicked(object sender, EventArgs e)
         {
 
             // Ensures that values got loaded from the database
@@ -175,7 +169,7 @@ namespace WinPulsDaten
         }
 
         // Event: When the caulation gets changed to manual
-        private void regRadHFManual_CheckedChanged(object sender, EventArgs e)
+        private void OnRegSelectMangualHF(object sender, EventArgs e)
         {
             this.regNudHpMax.Enabled = true;
             this.OnRegHFValueChange();

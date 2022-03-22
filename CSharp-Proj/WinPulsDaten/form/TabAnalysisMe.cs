@@ -16,7 +16,8 @@ namespace WinPulsDaten
         // Event: When this tab get's selected
         private async Task tabAnalysisMeSelect()
         {
-            this.anmeCbActivity.Enabled = false;
+            this.SetTabeable(false, this.anmeCbActivity);
+
             try
             {
                 // Gets the activitys
@@ -30,12 +31,12 @@ namespace WinPulsDaten
                 Console.WriteLine(e);
             }
 
-            this.anmeCbActivity.Enabled = true;
+            this.SetTabeable(true, this.anmeCbActivity);
         }
 
 
         // Event: When the user selects an activity for his analysis
-        private async void anmeCbActivity_SelectedIndexChanged(object sender, EventArgs e)
+        private async void OnAnmeActivityChanged(object sender, EventArgs e)
         {
             // Loads a datatable with x axis and the name
             void LoadDT(DataTable table, string xAxis, string tableName)
@@ -51,7 +52,7 @@ namespace WinPulsDaten
                 series.ChartType = SeriesChartType.Spline;
             }
 
-            this.anmeCbActivity.Enabled = false;
+            this.SetTabeable(false, this.anmeCbActivity);
 
             try
             {
@@ -75,7 +76,7 @@ namespace WinPulsDaten
                 Console.WriteLine(ex);
             }
 
-            this.anmeCbActivity.Enabled = true;
+            this.SetTabeable(true, this.anmeCbActivity);
         }
     }
 }

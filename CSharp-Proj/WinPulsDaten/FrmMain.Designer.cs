@@ -30,12 +30,12 @@ namespace WinPulsDaten
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabWelcome = new System.Windows.Forms.TabPage();
             this.tabRegister = new System.Windows.Forms.TabPage();
@@ -120,7 +120,6 @@ namespace WinPulsDaten
             this.tabControll.Controls.Add(this.tabSettings);
             this.tabControll.Controls.Add(this.tabAnalysisMe);
             this.tabControll.Controls.Add(this.tabPersonalData);
-            this.tabControll.Enabled = false;
             this.tabControll.Location = new System.Drawing.Point(12, 12);
             this.tabControll.Name = "tabControll";
             this.tabControll.SelectedIndex = 0;
@@ -258,7 +257,7 @@ namespace WinPulsDaten
             this.regRadHFManual.TabStop = true;
             this.regRadHFManual.Text = "Assign yourself";
             this.regRadHFManual.UseVisualStyleBackColor = true;
-            this.regRadHFManual.CheckedChanged += new System.EventHandler(this.regRadHFManual_CheckedChanged);
+            this.regRadHFManual.CheckedChanged += new System.EventHandler(this.OnRegSelectMangualHF);
             // 
             // regLbMaxHp
             // 
@@ -444,7 +443,7 @@ namespace WinPulsDaten
             this.regBtnLogin.TabIndex = 12;
             this.regBtnLogin.Text = "Register";
             this.regBtnLogin.UseVisualStyleBackColor = true;
-            this.regBtnLogin.Click += new System.EventHandler(this.regBtnLogin_Click);
+            this.regBtnLogin.Click += new System.EventHandler(this.OnRegRegisterClicked);
             // 
             // tabLogin
             // 
@@ -519,7 +518,7 @@ namespace WinPulsDaten
             this.logBtnLogin.TabIndex = 16;
             this.logBtnLogin.Text = "button1";
             this.logBtnLogin.UseVisualStyleBackColor = true;
-            this.logBtnLogin.Click += new System.EventHandler(this.logBtnLogin_Click);
+            this.logBtnLogin.Click += new System.EventHandler(this.OnLogLoginClicked);
             // 
             // tabStatsAll
             // 
@@ -557,16 +556,16 @@ namespace WinPulsDaten
             // 
             // staChartDisplay
             // 
-            chartArea3.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend1);
             this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.staChartDisplay.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.staChartDisplay.Series.Add(series1);
             this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
@@ -634,23 +633,23 @@ namespace WinPulsDaten
             this.anmeCbActivity.Name = "anmeCbActivity";
             this.anmeCbActivity.Size = new System.Drawing.Size(121, 21);
             this.anmeCbActivity.TabIndex = 18;
-            this.anmeCbActivity.SelectedIndexChanged += new System.EventHandler(this.anmeCbActivity_SelectedIndexChanged);
+            this.anmeCbActivity.SelectedIndexChanged += new System.EventHandler(this.OnAnmeActivityChanged);
             // 
             // anmeChartDisplay
             // 
             this.anmeChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.anmeChartDisplay.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.anmeChartDisplay.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.anmeChartDisplay.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.anmeChartDisplay.Legends.Add(legend2);
             this.anmeChartDisplay.Location = new System.Drawing.Point(3, 51);
             this.anmeChartDisplay.Name = "anmeChartDisplay";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.anmeChartDisplay.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.anmeChartDisplay.Series.Add(series2);
             this.anmeChartDisplay.Size = new System.Drawing.Size(762, 492);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";

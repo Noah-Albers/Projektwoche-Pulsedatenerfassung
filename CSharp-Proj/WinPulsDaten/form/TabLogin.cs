@@ -13,7 +13,7 @@ namespace WinPulsDaten
     {
 
         // Event: When the user clicks the login button
-        private async void logBtnLogin_Click(object sender, EventArgs e)
+        private async void OnLogLoginClicked(object sender, EventArgs e)
         {
 
             // Gets the values
@@ -33,10 +33,11 @@ namespace WinPulsDaten
                 MessageBox.Show("Please specify a password.","Error");
                 return;
             }
+            
+            this.SetTabeable(false);
 
             try
             {
-
                 // Prepares the statement and the values
                 var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_loginUser);
                 cmd.Parameters.AddWithValue("@fname", fname);
@@ -68,6 +69,8 @@ namespace WinPulsDaten
                 Console.WriteLine(ex);
             }
 
+
+            this.SetTabeable(true);
         }
 
     }

@@ -18,8 +18,18 @@ namespace WinPulsDaten
         public FrmMain()
         {
             InitializeComponent();
-
+            this.SetTabeable(true);
             this.UpdateTabs();
+        }
+
+        /// <summary>
+        /// Prevents or enables the user to switch tabs. Optionally also takes in a control that also shall be enabled or disabled
+        /// </summary>
+        private void SetTabeable(bool isTabable,Control optCtrl = null)
+        {
+            this.tabControll.Enabled = isTabable;
+            if(optCtrl != null)
+                optCtrl.Enabled = isTabable;
         }
 
         /// <summary>

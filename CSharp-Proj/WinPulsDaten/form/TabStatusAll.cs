@@ -25,7 +25,7 @@ namespace WinPulsDaten
             }
 
             // Disables the mode selection
-            this.staCbMode.Enabled = false;
+            this.SetTabeable(false,this.staCbMode);
 
             try
             {
@@ -65,7 +65,7 @@ namespace WinPulsDaten
             }
 
             // Reenables the mode selection
-            this.staCbMode.Enabled = true;
+            this.SetTabeable(true, this.staCbMode);
         }
     }
 }

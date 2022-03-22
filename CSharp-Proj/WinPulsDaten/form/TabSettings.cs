@@ -14,38 +14,35 @@ namespace WinPulsDaten
 
         private void tabSettingsSelect()
         {
-            //regLoadData();
+
         }
 
+        // Event: When the user clicks the delete button
         private async void setBtnDelte_Click(object sender, EventArgs e)
         {
-            if (setChbDeleteSuperUser.Checked)
-                // When checkbox is checked delete all user and pulsdate
-                try
+            var withSup = this.setChbDeleteSuperUser.Checked;
+
+            try
+            {
+                // Sends the updates
+                await this.DB.InsertAsync(DBQuerys.delete_Pulsdate);
+                await this.DB.InsertAsync(withSup ? DBQuerys.delete_Person : DBQuerys.delete_WithoutSuperUser);
+
+                // Checks if the user itself got deleted
+                if (withSup)
                 {
-                    await this.DB.InsertAsync(DBQuerys.delete_Pulsdate);
-                    await this.DB.InsertAsync(DBQuerys.delete_Person);
-                    User = null;
-                    UpdateTabs();
+                    // Performs a logout
+                    this.User = null;
+                    this.UpdateTabs();
                 }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(ex);
-                    //TODO: handle error e
-                }
-            else
-                // Delete no super user
-                try
-                {
-                    await this.DB.InsertAsync(DBQuerys.delete_Pulsdate);
-                    await this.DB.InsertAsync(DBQuerys.delete_WithoutSuperUser);
-                    MessageBox.Show("All data successful deleted");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                    //TODO: handle error e
-                }
+
+                MessageBox.Show("All data successful deleted");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
 
     }
