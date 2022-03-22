@@ -30,12 +30,12 @@ namespace WinPulsDaten
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabWelcome = new System.Windows.Forms.TabPage();
             this.tabRegister = new System.Windows.Forms.TabPage();
@@ -85,6 +85,10 @@ namespace WinPulsDaten
             this.anmeCbActivity = new System.Windows.Forms.ComboBox();
             this.anmeChartDisplay = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPersonalData = new System.Windows.Forms.TabPage();
+            this.pdLbWight = new System.Windows.Forms.Label();
+            this.pdLbSize = new System.Windows.Forms.Label();
+            this.pdLbLastname = new System.Windows.Forms.Label();
+            this.pdLbFirstname = new System.Windows.Forms.Label();
             this.perLbTrainingHeartRade = new System.Windows.Forms.Label();
             this.perNudTrainingHeartRade = new System.Windows.Forms.NumericUpDown();
             this.perLbRestingPulse = new System.Windows.Forms.Label();
@@ -120,7 +124,6 @@ namespace WinPulsDaten
             this.tabControll.Controls.Add(this.tabSettings);
             this.tabControll.Controls.Add(this.tabAnalysisMe);
             this.tabControll.Controls.Add(this.tabPersonalData);
-            this.tabControll.Enabled = false;
             this.tabControll.Location = new System.Drawing.Point(12, 12);
             this.tabControll.Name = "tabControll";
             this.tabControll.SelectedIndex = 0;
@@ -557,16 +560,16 @@ namespace WinPulsDaten
             // 
             // staChartDisplay
             // 
-            chartArea3.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend1);
             this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.staChartDisplay.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.staChartDisplay.Series.Add(series1);
             this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
@@ -641,22 +644,26 @@ namespace WinPulsDaten
             this.anmeChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.anmeChartDisplay.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.anmeChartDisplay.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.anmeChartDisplay.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.anmeChartDisplay.Legends.Add(legend2);
             this.anmeChartDisplay.Location = new System.Drawing.Point(3, 51);
             this.anmeChartDisplay.Name = "anmeChartDisplay";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.anmeChartDisplay.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.anmeChartDisplay.Series.Add(series2);
             this.anmeChartDisplay.Size = new System.Drawing.Size(762, 492);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";
             // 
             // tabPersonalData
             // 
+            this.tabPersonalData.Controls.Add(this.pdLbWight);
+            this.tabPersonalData.Controls.Add(this.pdLbSize);
+            this.tabPersonalData.Controls.Add(this.pdLbLastname);
+            this.tabPersonalData.Controls.Add(this.pdLbFirstname);
             this.tabPersonalData.Controls.Add(this.perLbTrainingHeartRade);
             this.tabPersonalData.Controls.Add(this.perNudTrainingHeartRade);
             this.tabPersonalData.Controls.Add(this.perLbRestingPulse);
@@ -669,6 +676,42 @@ namespace WinPulsDaten
             this.tabPersonalData.TabIndex = 5;
             this.tabPersonalData.Text = "Personsal data";
             this.tabPersonalData.UseVisualStyleBackColor = true;
+            // 
+            // pdLbWight
+            // 
+            this.pdLbWight.AutoSize = true;
+            this.pdLbWight.Location = new System.Drawing.Point(49, 110);
+            this.pdLbWight.Name = "pdLbWight";
+            this.pdLbWight.Size = new System.Drawing.Size(35, 13);
+            this.pdLbWight.TabIndex = 10;
+            this.pdLbWight.Text = "Wight";
+            // 
+            // pdLbSize
+            // 
+            this.pdLbSize.AutoSize = true;
+            this.pdLbSize.Location = new System.Drawing.Point(49, 87);
+            this.pdLbSize.Name = "pdLbSize";
+            this.pdLbSize.Size = new System.Drawing.Size(27, 13);
+            this.pdLbSize.TabIndex = 9;
+            this.pdLbSize.Text = "Size";
+            // 
+            // pdLbLastname
+            // 
+            this.pdLbLastname.AutoSize = true;
+            this.pdLbLastname.Location = new System.Drawing.Point(49, 62);
+            this.pdLbLastname.Name = "pdLbLastname";
+            this.pdLbLastname.Size = new System.Drawing.Size(53, 13);
+            this.pdLbLastname.TabIndex = 8;
+            this.pdLbLastname.Text = "Lastname";
+            // 
+            // pdLbFirstname
+            // 
+            this.pdLbFirstname.AutoSize = true;
+            this.pdLbFirstname.Location = new System.Drawing.Point(49, 37);
+            this.pdLbFirstname.Name = "pdLbFirstname";
+            this.pdLbFirstname.Size = new System.Drawing.Size(52, 13);
+            this.pdLbFirstname.TabIndex = 7;
+            this.pdLbFirstname.Text = "Firstname";
             // 
             // perLbTrainingHeartRade
             // 
@@ -710,6 +753,7 @@ namespace WinPulsDaten
             this.perNudRestingPulse.Name = "perNudRestingPulse";
             this.perNudRestingPulse.Size = new System.Drawing.Size(192, 20);
             this.perNudRestingPulse.TabIndex = 2;
+            this.perNudRestingPulse.ValueChanged += new System.EventHandler(this.perNudRestingPulse_ValueChanged);
             // 
             // perCbActivity
             // 
@@ -719,6 +763,7 @@ namespace WinPulsDaten
             this.perCbActivity.Name = "perCbActivity";
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
+            this.perCbActivity.TextChanged += new System.EventHandler(this.perCbActivity_TextChanged);
             // 
             // FrmMain
             // 
@@ -811,5 +856,9 @@ namespace WinPulsDaten
         private System.Windows.Forms.ComboBox regCbTrainingCondition;
         private System.Windows.Forms.CheckBox setChbDeleteSuperUser;
         private System.Windows.Forms.ComboBox regCbGender;
+        private System.Windows.Forms.Label pdLbLastname;
+        private System.Windows.Forms.Label pdLbFirstname;
+        private System.Windows.Forms.Label pdLbWight;
+        private System.Windows.Forms.Label pdLbSize;
     }
 }
