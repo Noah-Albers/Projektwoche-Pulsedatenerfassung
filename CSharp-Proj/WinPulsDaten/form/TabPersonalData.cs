@@ -15,6 +15,7 @@ namespace WinPulsDaten
         {
             prelod();
             
+            //TODO: Add label for values
             this.pdLbFirstname.Text = User.Firstname;
             this.pdLbLastname.Text = User.Lastname;
             this.pdLbSize.Text = User.Size.ToString() + " m";
@@ -41,14 +42,10 @@ namespace WinPulsDaten
         }
         private void calcuateTrainingHeartRate()
         {
-            if((decimal)((Activity)perCbActivity.SelectedItem).Factor == null)
-            {
-                Console.WriteLine("NULL");
-                    }else
-            {
-                Console.WriteLine("NOT nill");
-
-            }             //perNudTrainingHeartRade.Value = ((decimal)User.HpMax - perNudRestingPulse.Value) * (decimal)((Activity)perCbActivity.SelectedItem).Factor + perNudRestingPulse.Value;
+            if (((Activity)perCbActivity.SelectedItem).Factor == null)
+                perNudTrainingHeartRade.Value = ((decimal)User.HpMax - perNudRestingPulse.Value) * 0 + perNudRestingPulse.Value;
+            else
+                perNudTrainingHeartRade.Value = ((decimal)User.HpMax - perNudRestingPulse.Value) * (decimal)((Activity)perCbActivity.SelectedItem).Factor + perNudRestingPulse.Value;
         }
 
 
