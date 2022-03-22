@@ -161,4 +161,8 @@ a.Id = 1 group by p.ID order by 2</value>
   <data name="delete.WithoutSuperUser" xml:space="preserve">
     <value>DELETE FROM `person` WHERE IsSuperuser != true</value>
   </data>
+  <data name="select.criticalPulses" xml:space="preserve">
+    <value>SELECT pld.Value val, pld.RecordTime time FROM `pulsdata` pld JOIN Person p on p.ID = pld.Person where p.ID = @person and pld.Activity = @activity and pld.Value &gt;= (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365))</value>
+    <comment>Selects all pulses from a person that are over their critical limit</comment>
+  </data>
 </root>

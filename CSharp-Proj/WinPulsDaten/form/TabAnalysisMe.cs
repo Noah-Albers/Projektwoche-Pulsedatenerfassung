@@ -16,26 +16,24 @@ namespace WinPulsDaten
         // Event: When this tab get's selected
         private async Task tabAnalysisMeSelect()
         {
-            this.anmeCbActivity.Enabled = false;
+            this.SetTabeable(false, this.anmeCbActivity);
+
             try
             {
-                // Gets the activitys
-                var tbl = await this.DB.SelectAsTableAsync(DBQuerys.select_activitys);
 
-                // Appends them to the combobox
-                this.anmeCbActivity.LoadFromTable(tbl, Activity.Create);
+                // Appends the activitys them to the combobox
+                this.anmeCbActivity.LoadFromTable(await this.DB.SelectAsTableAsync(DBQuerys.select_activitys), Activity.Create);
             }catch(Exception e)
             {
                 // TODO
                 Console.WriteLine(e);
             }
 
-            this.anmeCbActivity.Enabled = true;
+            this.SetTabeable(true, this.anmeCbActivity);
         }
 
-
         // Event: When the user selects an activity for his analysis
-        private async void anmeCbActivity_SelectedIndexChanged(object sender, EventArgs e)
+        private async void OnAnmeActivityChanged(object sender, EventArgs e)
         {
             // Loads a datatable with x axis and the name
             void LoadDT(DataTable table, string xAxis, string tableName)
@@ -51,23 +49,43 @@ namespace WinPulsDaten
                 series.ChartType = SeriesChartType.Spline;
             }
 
-            this.anmeCbActivity.Enabled = false;
+            this.SetTabeable(false, this.anmeCbActivity);
 
             try
             {
-                // Performs the request
-                var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_personPulseOverTime);
+                // Gets the selected activity-id
+                var actId = ((Activity)this.anmeCbActivity.SelectedItem).Id;
 
-                // Appends the parameters
-                cmd.Parameters.AddWithValue("@person",this.User.Id);
-                cmd.Parameters.AddWithValue("@activity", ((Activity)this.anmeCbActivity.SelectedItem).Id);
-                cmd.Prepare();
+                // Loads the chart
+                {
+                    // Performs the request
+                    var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_personPulseOverTime);
 
-                // Executes the query
-                var tbl = await this.DB.SelectAsTableAsync(cmd);
+                    // Appends the parameters
+                    cmd.Parameters.AddWithValue("@person",this.User.Id);
+                    cmd.Parameters.AddWithValue("@activity", actId);
+                    cmd.Prepare();
 
-                // Updates the chart
-                LoadDT(tbl, "time", "Puls over time");
+                    // Loads and updates the chart
+                    LoadDT(await this.DB.SelectAsTableAsync(cmd), "time", "Puls over time");
+                }
+
+                // Loads the critical values
+                {
+                    var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_criticalPulses);
+
+                    // Appends parameters
+                    cmd.Parameters.AddWithValue("@person", this.User.Id);
+                    cmd.Parameters.AddWithValue("@activity", actId);
+                    cmd.Prepare();
+
+                    // Loads the table
+                    var tbl = await this.DB.SelectAsTableAsync(cmd);
+                    tbl.Columns[0].ColumnName = "Value";
+                    tbl.Columns[1].ColumnName = "Timestamp";
+
+                    this.anmeGDVCriticalViews.DataSource = tbl;
+                }
             }
             catch(Exception ex)
             {
@@ -75,7 +93,7 @@ namespace WinPulsDaten
                 Console.WriteLine(ex);
             }
 
-            this.anmeCbActivity.Enabled = true;
+            this.SetTabeable(true, this.anmeCbActivity);
         }
     }
 }

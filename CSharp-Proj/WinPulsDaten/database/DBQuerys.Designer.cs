@@ -124,6 +124,15 @@ namespace WinPulsDaten.database {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT pld.Value val, pld.RecordTime time FROM `pulsdata` pld JOIN Person p on p.ID = pld.Person where p.ID = @person and pld.Activity = @activity and pld.Value &gt;= (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365)) ähnelt.
+        /// </summary>
+        internal static string select_criticalPulses {
+            get {
+                return ResourceManager.GetString("select.criticalPulses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hf, FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365) age FROM `person` p group by age order by 2; ähnelt.
         /// </summary>
         internal static string select_HfOverAge {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WinPulsDaten.data;
 
 namespace WinPulsDaten
@@ -13,9 +9,9 @@ namespace WinPulsDaten
         /// <summary>
         /// Takes in conditions and returns a function to calculate their HFmax
         /// </summary>
-        /// <param name="male"></param>
-        /// <param name="condition"></param>
-        /// <returns></returns>
+        /// <param name="male">If the person in question is male or female</param>
+        /// <param name="condition">The training-condition of the person in question</param>
+        /// <returns>The function that takes in an age and returns the hf-max value of the person in question</returns>
         public static Func<int,int> GetCalculationFunction(bool male, Trainingcondition condition)
         {
             // Overweight
