@@ -10,12 +10,7 @@ namespace WinPulsDaten
         private readonly Database DB = new Database("localhost", "pulsdaten", "root", "");
 
         // Login in user (Optional, if logged out this will be null)
-        private Person User = new Person
-        {
-            Firstname = "Billy",
-            Lastname = "Butcher",
-            isSup = true
-        };
+        private Person User;
 
         // Random generator (Handy to have around)
         private readonly Random rdm = new Random();
@@ -77,34 +72,5 @@ namespace WinPulsDaten
                 this.tabSettingsSelect();
         }
 
-        private void regRadHFManual_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void regRadHPAuto_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void regNutSize_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void regNudWight_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void regCbTrainingCondition_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void regCbGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

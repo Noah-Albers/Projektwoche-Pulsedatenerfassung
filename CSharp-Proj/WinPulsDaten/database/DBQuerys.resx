@@ -129,8 +129,8 @@
     <value>SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a</value>
     <comment>Selects all activitys</comment>
   </data>
-  <data name="select.HpOverAge" xml:space="preserve">
-    <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365) age FROM `person` p group by age order by 2;</value>
+  <data name="select.HfOverAge" xml:space="preserve">
+    <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hf, FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365) age FROM `person` p group by age order by 2;</value>
     <comment>Selects all HpMax-Values and assignes them to the age of the user (Also ordered by age decreasing)</comment>
   </data>
   <data name="select.personPulseOverTime" xml:space="preserve">

@@ -39,9 +39,9 @@ namespace WinPulsDaten
                     case 0:
                         // Updates the chart
                         LoadDT(
-                            await this.DB.SelectAsTableAsync(DBQuerys.select_HpOverAge),
+                            await this.DB.SelectAsTableAsync(DBQuerys.select_HfOverAge),
                             "age",
-                            "MaxHP over Age"
+                            "MaxHF over Age"
                         );
                         break;
 

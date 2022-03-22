@@ -17,8 +17,8 @@ namespace WinPulsDaten.data
         /// <summary>
         /// Method to load a training-condition from a Datarow that got retreived from a database
         /// </summary>
-        public static Gender Create(DataRow row)
-        => new Gender
+        public static Trainingcondition Create(DataRow row)
+        => new Trainingcondition
         {
             ID = (int)row["id"],
             Name = (string)row["name"]
