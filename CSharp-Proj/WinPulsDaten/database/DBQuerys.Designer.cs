@@ -10,8 +10,8 @@
 
 namespace WinPulsDaten.database {
     using System;
-
-
+    
+    
     /// <summary>
     ///   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
     /// </summary>
@@ -19,19 +19,19 @@ namespace WinPulsDaten.database {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class DBQuerys {
-
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal DBQuerys() {
         }
-
+        
         /// <summary>
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
@@ -45,7 +45,7 @@ namespace WinPulsDaten.database {
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
@@ -59,54 +59,72 @@ namespace WinPulsDaten.database {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT * FROM `geschlecht` ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die INSERT INTO `person` (`ID`, `Firstname`, `Lastname`, `Birthday`, `Gender`, `Bodysize`, `Weight`, `TrainingCondition`, `HFmax`, `Passwd`, `PassSalt`, `IsSuperuser`) VALUES (NULL, @fname, @lname, @birth, @gender, @bodysize, @weight, @condition, @hfmax, SHA2(CONCAT(@passwd,@salt),256), @salt, @isSup); ähnelt.
         /// </summary>
-        internal static string select_AllGender {
+        internal static string insert_createUser {
             get {
-                return ResourceManager.GetString("select.AllGender", resourceCulture);
+                return ResourceManager.GetString("insert.createUser", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT * FROM `trainingszustand` ähnelt.
-        /// </summary>
-        internal static string select_AllTrainingCondition {
-            get {
-                return ResourceManager.GetString("select.AllTrainingCondition", resourceCulture);
-            }
-        }
-
-        /// </summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Art art,a.faktor factor FROM `aktivitaet` a ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a ähnelt.
         /// </summary>
         internal static string select_activitys {
             get {
                 return ResourceManager.GetString("select.activitys", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) age FROM `person` p group by age order by 2; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT g.ID id, g.Name name FROM `gender` g; ähnelt.
+        /// </summary>
+        internal static string select_AllGender {
+            get {
+                return ResourceManager.GetString("select.AllGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT t.ID id, t.Name name FROM `trainingcondition` t ähnelt.
+        /// </summary>
+        internal static string select_AllTrainingCondition {
+            get {
+                return ResourceManager.GetString("select.AllTrainingCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365) age FROM `person` p group by age order by 2; ähnelt.
         /// </summary>
         internal static string select_HpOverAge {
             get {
                 return ResourceManager.GetString("select.HpOverAge", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT pld.erfassungszeit time, pld.wert val FROM person p JOIN pulsdaten pld on pld.person = p.ID where p.ID = @person and pld.aktivitaet = @activity order by 1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT p.ID id, p.Firstname fname, p.Lastname lname, p.Birthday birthday, p.Gender gender, p.Bodysize size, p.Weight weight, p.TrainingCondition trainCondition, p.HFmax hfmax, p.IsSuperuser isSup FROM `person` p WHERE p.Firstname = @fname and p.Lastname = @lname and p.Passwd = SHA2(CONCAT(@passwd,p.PassSalt),256) ähnelt.
+        /// </summary>
+        internal static string select_loginUser {
+            get {
+                return ResourceManager.GetString("select.loginUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT pld.RecordTime time, pld.Value val FROM person p JOIN pulsdata pld on pld.person = p.ID where p.ID = @person and pld.Activity = @activity order by 1 ähnelt.
         /// </summary>
         internal static string select_personPulseOverTime {
             get {
                 return ResourceManager.GetString("select.personPulseOverTime", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Select CAST(SUM(pld.wert)/Count(*) as int) pulse, p.Gewicht weight from person p Join pulsdaten pld on pld.person = p.ID Join aktivitaet a on a.Id = pld.aktivitaet where
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select CAST(SUM(pld.Value)/Count(*) as int) pulse, p.Weight weight from person p Join pulsdata pld on pld.Person = p.ID Join activity a on a.Id = pld.Activity where
         ///a.Id = 1 group by p.ID order by 2 ähnelt.
         /// </summary>
         internal static string select_RestpulsOverWeight {

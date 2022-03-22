@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinPulsDaten.data;
 using WinPulsDaten.database;
 
 namespace WinPulsDaten
@@ -18,8 +19,7 @@ namespace WinPulsDaten
         {
             regCbGender.SelectedIndex = 0;
             regRadHPAuto.Checked = true;
-            regNudHpMax.Enabled = false;
-            regDpAge.MaxDate = DateTime.Now;
+            regDpBirth.MaxDate = DateTime.Now;
             regNewUser();
         }
 
@@ -35,13 +35,7 @@ namespace WinPulsDaten
             {
                 var tbl = await DB.SelectAsTableAsync(DBQuerys.select_AllGender);
 
-                this.regCbGender.Items.Clear();
-
-                foreach(DataRow row in tbl.Rows)
-                    this.regCbGender.Items.Add(Gender.Create(row));
-
-                tbl = await DB.SelectAsTableAsync(DBQuerys.select_AllTrainingCondition);
-
+                this.regCbGender.LoadFromTable(tbl, Gender.Create);
             }
             catch(Exception ex)
             {
@@ -49,113 +43,119 @@ namespace WinPulsDaten
             }
         }
 
+
         /*
          * @params: System
          * @handle: Regsiter new User with valdiation
          * @retrun: Void
          * @author: Florian Keller <2022/03/21 12:20>
          */
-        private void regBtnLogin_Click(object sender, EventArgs e)
+        private async void regBtnLogin_Click(object sender, EventArgs e)
         {
 
             /*
              * Create new pd refercenz
              */
-            PersonData pd = new PersonData(regTbFirstname.Text.ToString(), regTbLastname.Text.ToString(), regTbPassword.Text.ToString(), regTbPasswordConfirm.Text.ToString(), (float)regNudWight.Value, (float)regNutSize.Value, ((Gender)this.regCbGender.SelectedItem).ID, regDpAge.Value, (float)regNudHpMax.Value);
+
+            var fname = regTbFirstname.Text.ToString();
+            var lname = regTbLastname.Text.ToString();
+            var pwd = regTbPassword.Text.ToString();
+            var weight = (float)regNudWight.Value;
+            var size = (float)regNutSize.Value;
+            var genderId = ((Gender)this.regCbGender.SelectedItem).ID;
+            var birth = regDpBirth.Value;
+            var hfmax = (float)regNudHpMax.Value;
+
 
             /*
              * Validate Register form
              */
-            if (pd.Firstname.Length <= 0)
+
+            if (fname.Length <= 0)
             {
                 MessageBox.Show("Firstname is requried");
                 return;
             }
 
-            if (pd.Lastname.Length <= 0)
+            if (lname.Length <= 0)
             {
                 MessageBox.Show("Lastname is requried");
                 return;
             }
 
-            if (pd.Password.Length <= 0)
+            if (pwd.Length <= 0)
             {
                 MessageBox.Show("Password is required");
                 return;
             }
 
-            if (pd.ConfPassword.Length <= 0)
-            {
-                MessageBox.Show("Conf password is required");
-                return;
-            }
-
-            if (!string.Equals(pd.Password, pd.ConfPassword))
+            if (!string.Equals(pwd, this.regTbPasswordConfirm.Text))
             {
                 MessageBox.Show("Password are not eqauls");
                 return;
             }
 
-            if (pd.Wight <= 0)
+            if (weight <= 0)
             {
                 MessageBox.Show("Wight is requried");
                 return;
             }
 
-            if (pd.Size <= 0)
+            if (size <= 0)
             {
                 MessageBox.Show("Size is requried");
                 return;
             }
 
-            if (pd.Gender <= 0)
-            {
-                MessageBox.Show("Gender is requried");
-                return;
-            }
-
-            if (regRadHFManual.Checked)
+            if (hfmax <= 0)
             {
                 MessageBox.Show("HF is requried");
                 return;
             }
+
             /*
              * Validate end
              */
 
 
-        }
 
-        /*
-         * @params: System
-         * @handle: Enable HPmax textbox
-         * @retrun: Void
-         * @author: Florian Keller <2022/03/21 12:18>
-         */
-        private void regRadHFManual_CheckedChanged(object sender, EventArgs e)
-        {
-            regNudHpMax.Enabled = true;
-        }
 
-        /*
-         * @params: System
-         * @handle: Disable HPmax textbox
-         * @retrun: Void
-         * @author: Florian Keller <2022/03/21 12:17>
-         */
-        private void regRadHPAuto_CheckedChanged(object sender, EventArgs e)
-        {
-            regNudHpMax.Enabled = false;
-        }
+            // Generates a random salt (32 Bytes)
+            byte[] b = new byte[32];
+            this.rdm.NextBytes(b);
+            var salt = Encoding.UTF8.GetString(b);
+            try
+            {
+                // Registers the user
+                var cmd = await this.DB.PrepareStatementAsync(DBQuerys.insert_createUser);
 
-        /*
-         * @params: NULL
-         * @handle: Calcuate max HF 
-         * @retrun: Void
-         * @author: Florian Keller <2022/03/21 12:22>
-         */
-        private void calculateHFmax()
-        {
+                // Appends the values
+                cmd.Parameters.AddWithValue("@fname",fname);
+                cmd.Parameters.AddWithValue("@lname",lname);
+                cmd.Parameters.AddWithValue("@birth",birth);
+                cmd.Parameters.AddWithValue("@gender",genderId);
+                cmd.Parameters.AddWithValue("@bodysize",size);
+                cmd.Parameters.AddWithValue("@weight",weight);
+                cmd.Parameters.AddWithValue("@condition",1); //TODO: Implement the dropdown here
+                cmd.Parameters.AddWithValue("@hfmax",hfmax);
+                cmd.Parameters.AddWithValue("@passwd",pwd);
+                cmd.Parameters.AddWithValue("@salt",salt);
+                cmd.Parameters.AddWithValue("@isSup",false);
+
+                // Prepares and executes the query
+                cmd.Prepare();
+
+                // Inserts
+                await this.DB.InsertAsync(cmd);
+
+                // TODO: Handle stuff
+                MessageBox.Show("You have successfully registered","Successfully registered");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                // TODO: Handle error
+            }
 
         }
     }

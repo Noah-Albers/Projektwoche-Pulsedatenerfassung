@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -118,28 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="select.AllGender" xml:space="preserve">
-    <value>SELECT * FROM `geschlecht`</value>
+    <value>SELECT g.ID id, g.Name name FROM `gender` g;</value>
     <comment>Select all gender for regsiter new user</comment>
   </data>
   <data name="select.AllTrainingCondition" xml:space="preserve">
-    <value>SELECT * FROM `trainingszustand`</value>
+    <value>SELECT t.ID id, t.Name name FROM `trainingcondition` t</value>
     <comment>Select all training conditon</comment>
   </data>
   <data name="select.activitys" xml:space="preserve">
-    <value>SELECT a.Id id,a.Art art,a.faktor factor FROM `aktivitaet` a</value>
+    <value>SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a</value>
     <comment>Selects all activitys</comment>
   </data>
   <data name="select.HpOverAge" xml:space="preserve">
-    <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) age FROM `person` p group by age order by 2;</value>
+    <value>SELECT CAST(SUM(p.HFmax)/COUNT(*) as INT) hp, FLOOR(DATEDIFF(CURRENT_DATE(),p.Birthday)/365) age FROM `person` p group by age order by 2;</value>
     <comment>Selects all HpMax-Values and assignes them to the age of the user (Also ordered by age decreasing)</comment>
   </data>
   <data name="select.personPulseOverTime" xml:space="preserve">
-    <value>SELECT pld.erfassungszeit time, pld.wert val FROM person p JOIN pulsdaten pld on pld.person = p.ID where p.ID = @person and pld.aktivitaet = @activity order by 1</value>
+    <value>SELECT pld.RecordTime time, pld.Value val FROM person p JOIN pulsdata pld on pld.person = p.ID where p.ID = @person and pld.Activity = @activity order by 1</value>
     <comment>Select all pluse over time from a single person and a single activity.</comment>
   </data>
   <data name="select.RestpulsOverWeight" xml:space="preserve">
-    <value>Select CAST(SUM(pld.wert)/Count(*) as int) pulse, p.Gewicht weight from person p Join pulsdaten pld on pld.person = p.ID Join aktivitaet a on a.Id = pld.aktivitaet where
+    <value>Select CAST(SUM(pld.Value)/Count(*) as int) pulse, p.Weight weight from person p Join pulsdata pld on pld.Person = p.ID Join activity a on a.Id = pld.Activity where
 a.Id = 1 group by p.ID order by 2</value>
     <comment>Select all Restpluse values and assignes them to the weight of the user (Also ordered by age decreasing)</comment>
+  </data>
+  <data name="insert.createUser" xml:space="preserve">
+    <value>INSERT INTO `person` (`ID`, `Firstname`, `Lastname`, `Birthday`, `Gender`, `Bodysize`, `Weight`, `TrainingCondition`, `HFmax`, `Passwd`, `PassSalt`, `IsSuperuser`) VALUES (NULL, @fname, @lname, @birth, @gender, @bodysize, @weight, @condition, @hfmax, SHA2(CONCAT(@passwd,@salt),256), @salt, @isSup);</value>
+    <comment>Creates a new user</comment>
+  </data>
+  <data name="select.loginUser" xml:space="preserve">
+    <value>SELECT p.ID id, p.Firstname fname, p.Lastname lname, p.Birthday birthday, p.Gender gender, p.Bodysize size, p.Weight weight, p.TrainingCondition trainCondition, p.HFmax hfmax, p.IsSuperuser isSup FROM `person` p WHERE p.Firstname = @fname and p.Lastname = @lname and p.Passwd = SHA2(CONCAT(@passwd,p.PassSalt),256)</value>
+    <comment>Tries to login the user and selects all required attriutes in the process.</comment>
   </data>
 </root>

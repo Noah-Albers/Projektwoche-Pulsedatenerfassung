@@ -99,11 +99,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\Activity.cs" />
     <Compile Include="database\Database.cs" />
     <Compile Include="database\DBQuerys.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBQuerys.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="form\TabAnalysisMe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\TabLogin.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="form\TabRegister.cs">
       <SubType>Form</SubType>
@@ -117,8 +125,8 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gender.cs" />
-    <Compile Include="PersonData.cs" />
+    <Compile Include="data\Gender.cs" />
+    <Compile Include="data\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="database\DBQuerys.resx">
