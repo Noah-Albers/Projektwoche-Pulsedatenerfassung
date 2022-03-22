@@ -20,11 +20,9 @@ namespace WinPulsDaten
 
             try
             {
-                // Gets the activitys
-                var tbl = await this.DB.SelectAsTableAsync(DBQuerys.select_activitys);
 
-                // Appends them to the combobox
-                this.anmeCbActivity.LoadFromTable(tbl, Activity.Create);
+                // Appends the activitys them to the combobox
+                this.anmeCbActivity.LoadFromTable(await this.DB.SelectAsTableAsync(DBQuerys.select_activitys), Activity.Create);
             }catch(Exception e)
             {
                 // TODO
@@ -33,7 +31,6 @@ namespace WinPulsDaten
 
             this.SetTabeable(true, this.anmeCbActivity);
         }
-
 
         // Event: When the user selects an activity for his analysis
         private async void OnAnmeActivityChanged(object sender, EventArgs e)
@@ -56,19 +53,39 @@ namespace WinPulsDaten
 
             try
             {
-                // Performs the request
-                var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_personPulseOverTime);
+                // Gets the selected activity-id
+                var actId = ((Activity)this.anmeCbActivity.SelectedItem).Id;
 
-                // Appends the parameters
-                cmd.Parameters.AddWithValue("@person",this.User.Id);
-                cmd.Parameters.AddWithValue("@activity", ((Activity)this.anmeCbActivity.SelectedItem).Id);
-                cmd.Prepare();
+                // Loads the chart
+                {
+                    // Performs the request
+                    var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_personPulseOverTime);
 
-                // Executes the query
-                var tbl = await this.DB.SelectAsTableAsync(cmd);
+                    // Appends the parameters
+                    cmd.Parameters.AddWithValue("@person",this.User.Id);
+                    cmd.Parameters.AddWithValue("@activity", actId);
+                    cmd.Prepare();
 
-                // Updates the chart
-                LoadDT(tbl, "time", "Puls over time");
+                    // Loads and updates the chart
+                    LoadDT(await this.DB.SelectAsTableAsync(cmd), "time", "Puls over time");
+                }
+
+                // Loads the critical values
+                {
+                    var cmd = await this.DB.PrepareStatementAsync(DBQuerys.select_criticalPulses);
+
+                    // Appends parameters
+                    cmd.Parameters.AddWithValue("@person", this.User.Id);
+                    cmd.Parameters.AddWithValue("@activity", actId);
+                    cmd.Prepare();
+
+                    // Loads the table
+                    var tbl = await this.DB.SelectAsTableAsync(cmd);
+                    tbl.Columns[0].ColumnName = "Value";
+                    tbl.Columns[1].ColumnName = "Timestamp";
+
+                    this.anmeGDVCriticalViews.DataSource = tbl;
+                }
             }
             catch(Exception ex)
             {

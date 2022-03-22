@@ -33,6 +33,7 @@ namespace WinPulsDaten
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -81,6 +82,7 @@ namespace WinPulsDaten
             this.setChbDeleteSuperUser = new System.Windows.Forms.CheckBox();
             this.setBtnDelte = new System.Windows.Forms.Button();
             this.tabAnalysisMe = new System.Windows.Forms.TabPage();
+            this.anmeGDVCriticalViews = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.anmeCbActivity = new System.Windows.Forms.ComboBox();
             this.anmeChartDisplay = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -91,6 +93,7 @@ namespace WinPulsDaten
             this.perLbActivity = new System.Windows.Forms.Label();
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
+            this.anmeLbCriticalValues = new System.Windows.Forms.Label();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHp.SuspendLayout();
@@ -102,6 +105,7 @@ namespace WinPulsDaten
             ((System.ComponentModel.ISupportInitialize)(this.staChartDisplay)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.tabAnalysisMe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.anmeGDVCriticalViews)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anmeChartDisplay)).BeginInit();
             this.tabPersonalData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.perNudTrainingHeartRade)).BeginInit();
@@ -603,6 +607,8 @@ namespace WinPulsDaten
             // 
             // tabAnalysisMe
             // 
+            this.tabAnalysisMe.Controls.Add(this.anmeLbCriticalValues);
+            this.tabAnalysisMe.Controls.Add(this.anmeGDVCriticalViews);
             this.tabAnalysisMe.Controls.Add(this.label1);
             this.tabAnalysisMe.Controls.Add(this.anmeCbActivity);
             this.tabAnalysisMe.Controls.Add(this.anmeChartDisplay);
@@ -612,6 +618,23 @@ namespace WinPulsDaten
             this.tabAnalysisMe.TabIndex = 4;
             this.tabAnalysisMe.Text = "Analysis (Me)";
             this.tabAnalysisMe.UseVisualStyleBackColor = true;
+            // 
+            // anmeGDVCriticalViews
+            // 
+            this.anmeGDVCriticalViews.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.anmeGDVCriticalViews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.anmeGDVCriticalViews.DefaultCellStyle = dataGridViewCellStyle1;
+            this.anmeGDVCriticalViews.Location = new System.Drawing.Point(483, 76);
+            this.anmeGDVCriticalViews.Name = "anmeGDVCriticalViews";
+            this.anmeGDVCriticalViews.Size = new System.Drawing.Size(282, 467);
+            this.anmeGDVCriticalViews.TabIndex = 19;
             // 
             // label1
             // 
@@ -650,7 +673,7 @@ namespace WinPulsDaten
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.anmeChartDisplay.Series.Add(series2);
-            this.anmeChartDisplay.Size = new System.Drawing.Size(762, 492);
+            this.anmeChartDisplay.Size = new System.Drawing.Size(474, 492);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";
             // 
@@ -719,6 +742,15 @@ namespace WinPulsDaten
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
             // 
+            // anmeLbCriticalValues
+            // 
+            this.anmeLbCriticalValues.AutoSize = true;
+            this.anmeLbCriticalValues.Location = new System.Drawing.Point(483, 60);
+            this.anmeLbCriticalValues.Name = "anmeLbCriticalValues";
+            this.anmeLbCriticalValues.Size = new System.Drawing.Size(72, 13);
+            this.anmeLbCriticalValues.TabIndex = 20;
+            this.anmeLbCriticalValues.Text = "Critical values";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,6 +776,7 @@ namespace WinPulsDaten
             this.tabSettings.PerformLayout();
             this.tabAnalysisMe.ResumeLayout(false);
             this.tabAnalysisMe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.anmeGDVCriticalViews)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anmeChartDisplay)).EndInit();
             this.tabPersonalData.ResumeLayout(false);
             this.tabPersonalData.PerformLayout();
@@ -810,5 +843,7 @@ namespace WinPulsDaten
         private System.Windows.Forms.ComboBox regCbTrainingCondition;
         private System.Windows.Forms.CheckBox setChbDeleteSuperUser;
         private System.Windows.Forms.ComboBox regCbGender;
+        private System.Windows.Forms.DataGridView anmeGDVCriticalViews;
+        private System.Windows.Forms.Label anmeLbCriticalValues;
     }
 }
