@@ -1,4 +1,6 @@
-Die Datenbank wurde angepasst udn ins englische übersetzt.
+# Puls-analyser (Professional)
+
+Die Datenbank wurde angepasst und ins englische übersetzt.
 
 Der Super User (Admin) muss in der Datenbank extra angelegt werden (Das "IsSuperuser"-Feld bei dem Benutzer auf 1 setzen).
 
