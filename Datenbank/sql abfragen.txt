@@ -1,0 +1,54 @@
+2.1
+SELECT p.Vorname, p.Nachname, pulsdaten.wert, pulsdaten.erfassungszeit 
+FROM person p 
+JOIN pulsdaten on person = p.ID 
+ORDER BY p.ID, pulsdaten.erfassungszeit;
+
+2.2
+UPDATE login
+SET pass = SHA2(login.pass, 256)
+WHERE login.user = "Hulk"
+
+2.3
+SELECT p.Vorname, p.Nachname, p.Geburtsdatum, p.Koerpergroesse, p.HFmax, p.Gewicht, g.Geschlecht, t.Typ 
+FROM person p  
+JOIN geschlecht g on p.Geschlecht = g.ID
+JOIN trainingszustand t on p.trainingszustand = t.ID 
+WHERE p.Vorname = "Peter" AND p.Nachname = "Parker"
+
+
+2.4
+SELECT *
+FROM person p
+JOIN pulsdaten d on p.ID = d.person
+WHERE p.Vorname = "Bruce" 
+AND p.Nachname = "Banner" 
+AND d.aktivitaet = 
+(SELECT id FROM aktivitaet a WHERE a.Art = "Intervallmethode") 
+
+2.5
+SELECT p.HFmax, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) "alter"
+FROM person p
+ORDER BY 2
+
+
+2.6
+SELECT p.id, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365), AVG(d.wert)
+FROM person p
+JOIN pulsdaten d ON p.ID = d.person
+GROUP BY d.person;
+
+2.7 
+SELECT  p.Vorname, p.Nachname, (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365)) as "kritischer Bereich", d.wert puls
+FROM person p
+JOIN pulsdaten d ON p.ID = d.person
+where d.wert >= (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365))-10
+
+2.8
+SELECT count(*) personen FROM person p
+where p.ID in (
+	select distinct pls.person from pulsdaten pls
+    where 
+       	MONTH(pls.erfassungszeit) = 2
+        AND YEAR(pls.erfassungszeit) = 2022
+)
