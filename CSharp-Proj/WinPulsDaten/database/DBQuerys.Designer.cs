@@ -97,7 +97,7 @@ namespace WinPulsDaten.database {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Name name,Factor factor FROM `activity` a ähnelt.
         /// </summary>
         internal static string select_activitys {
             get {
@@ -106,7 +106,7 @@ namespace WinPulsDaten.database {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Name name,null factor FROM `activity` a where Factor is not null; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a where Factor is not null ähnelt.
         /// </summary>
         internal static string select_activitysWithFactor {
             get {

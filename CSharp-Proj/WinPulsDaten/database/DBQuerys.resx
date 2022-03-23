@@ -122,7 +122,7 @@
     <comment>Select all training conditon</comment>
   </data>
   <data name="select.activitys" xml:space="preserve">
-    <value>SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a</value>
+    <value>SELECT a.Id id,a.Name name,Factor factor FROM `activity` a</value>
     <comment>Selects all activitys</comment>
   </data>
   <data name="select.HfOverAge" xml:space="preserve">
@@ -162,6 +162,6 @@ a.Id = 1 group by p.ID order by 2</value>
     <comment>Selects all pulses from a person that are over their critical limit</comment>
   </data>
   <data name="select.activitysWithFactor" xml:space="preserve">
-    <value>SELECT a.Id id,a.Name name,null factor FROM `activity` a where Factor is not null;</value>
+    <value>SELECT a.Id id,a.Name name,a.Factor factor FROM `activity` a where Factor is not null</value>
   </data>
 </root>

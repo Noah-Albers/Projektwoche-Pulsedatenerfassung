@@ -31,51 +31,55 @@ namespace WinPulsDaten
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabWelcome = new System.Windows.Forms.TabPage();
+            this.welLbBkrlogo = new System.Windows.Forms.Label();
+            this.welLbWelcome = new System.Windows.Forms.Label();
             this.tabRegister = new System.Windows.Forms.TabPage();
+            this.regPnlCenter = new System.Windows.Forms.Panel();
+            this.regTbPassword = new System.Windows.Forms.TextBox();
+            this.regBtnLogin = new System.Windows.Forms.Button();
             this.regLbBirth = new System.Windows.Forms.Label();
+            this.regLbFirstname = new System.Windows.Forms.Label();
             this.regLbTraincondition = new System.Windows.Forms.Label();
+            this.regLbLastname = new System.Windows.Forms.Label();
             this.regCbTrainingCondition = new System.Windows.Forms.ComboBox();
-            this.regTbFirstname = new System.Windows.Forms.TextBox();
+            this.regTbLastname = new System.Windows.Forms.TextBox();
             this.regDpBirth = new System.Windows.Forms.DateTimePicker();
             this.regPanHf = new System.Windows.Forms.Panel();
             this.regBtnInfo = new System.Windows.Forms.Button();
             this.regNudHfMax = new System.Windows.Forms.NumericUpDown();
             this.regRadHfAuto = new System.Windows.Forms.RadioButton();
             this.regRadHFManual = new System.Windows.Forms.RadioButton();
+            this.regTbFirstname = new System.Windows.Forms.TextBox();
             this.regLbMaxHf = new System.Windows.Forms.Label();
+            this.regLbPassword = new System.Windows.Forms.Label();
             this.regLbSize = new System.Windows.Forms.Label();
+            this.regTbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.regLbWight = new System.Windows.Forms.Label();
+            this.regLbConfrimPassword = new System.Windows.Forms.Label();
             this.regLbM = new System.Windows.Forms.Label();
+            this.regCbGender = new System.Windows.Forms.ComboBox();
             this.regLbKG = new System.Windows.Forms.Label();
+            this.regLbGender = new System.Windows.Forms.Label();
             this.regNudSize = new System.Windows.Forms.NumericUpDown();
             this.regNudWight = new System.Windows.Forms.NumericUpDown();
-            this.regLbGender = new System.Windows.Forms.Label();
-            this.regCbGender = new System.Windows.Forms.ComboBox();
-            this.regLbConfrimPassword = new System.Windows.Forms.Label();
-            this.regLbPassword = new System.Windows.Forms.Label();
-            this.regTbLastname = new System.Windows.Forms.TextBox();
-            this.regLbLastname = new System.Windows.Forms.Label();
-            this.regLbFirstname = new System.Windows.Forms.Label();
-            this.regTbPasswordConfirm = new System.Windows.Forms.TextBox();
-            this.regTbPassword = new System.Windows.Forms.TextBox();
-            this.regBtnLogin = new System.Windows.Forms.Button();
             this.tabLogin = new System.Windows.Forms.TabPage();
-            this.logLbPassword = new System.Windows.Forms.Label();
-            this.logTbLastname = new System.Windows.Forms.TextBox();
-            this.logLbLastname = new System.Windows.Forms.Label();
-            this.logLbFirstname = new System.Windows.Forms.Label();
-            this.logTbFirstname = new System.Windows.Forms.TextBox();
+            this.logPnlDisplay = new System.Windows.Forms.Panel();
             this.logTbPassword = new System.Windows.Forms.TextBox();
             this.logBtnLogin = new System.Windows.Forms.Button();
+            this.logLbPassword = new System.Windows.Forms.Label();
+            this.logTbFirstname = new System.Windows.Forms.TextBox();
+            this.logTbLastname = new System.Windows.Forms.TextBox();
+            this.logLbFirstname = new System.Windows.Forms.Label();
+            this.logLbLastname = new System.Windows.Forms.Label();
             this.tabStatsAll = new System.Windows.Forms.TabPage();
             this.staLbMode = new System.Windows.Forms.Label();
             this.staCbMode = new System.Windows.Forms.ComboBox();
@@ -90,27 +94,34 @@ namespace WinPulsDaten
             this.anmeCbActivity = new System.Windows.Forms.ComboBox();
             this.anmeChartDisplay = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPersonalData = new System.Windows.Forms.TabPage();
-            this.pdLbWeight = new System.Windows.Forms.Label();
-            this.pdLbSize = new System.Windows.Forms.Label();
-            this.pdLbLastname = new System.Windows.Forms.Label();
-            this.pdLbFirstname = new System.Windows.Forms.Label();
-            this.perLbTrainingHeartRade = new System.Windows.Forms.Label();
+            this.perLbCalculateTrainingRate = new System.Windows.Forms.Label();
+            this.perLbInfos = new System.Windows.Forms.Label();
+            this.perPnlActivity = new System.Windows.Forms.Panel();
             this.perNudTrainingHeartRade = new System.Windows.Forms.NumericUpDown();
-            this.perLbRestingPulse = new System.Windows.Forms.Label();
-            this.perLbActivity = new System.Windows.Forms.Label();
-            this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
+            this.perLbTrainingHeartRade = new System.Windows.Forms.Label();
+            this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
+            this.perLbActivity = new System.Windows.Forms.Label();
+            this.perLbRestingPulse = new System.Windows.Forms.Label();
+            this.perPnlDisplay = new System.Windows.Forms.Panel();
+            this.pdLbWeight = new System.Windows.Forms.Label();
             this.pdLbWeightTitle = new System.Windows.Forms.Label();
+            this.pdLbFirstname = new System.Windows.Forms.Label();
             this.pdLbSizeTitle = new System.Windows.Forms.Label();
+            this.pdLbLastname = new System.Windows.Forms.Label();
             this.pdLbLastnameTitle = new System.Windows.Forms.Label();
+            this.pdLbSize = new System.Windows.Forms.Label();
             this.pdLbFirstnameTitle = new System.Windows.Forms.Label();
             this.tabControll.SuspendLayout();
+            this.tabWelcome.SuspendLayout();
             this.tabRegister.SuspendLayout();
+            this.regPnlCenter.SuspendLayout();
             this.regPanHf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regNudHfMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regNudSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regNudWight)).BeginInit();
             this.tabLogin.SuspendLayout();
+            this.logPnlDisplay.SuspendLayout();
             this.tabStatsAll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staChartDisplay)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -118,8 +129,10 @@ namespace WinPulsDaten
             ((System.ComponentModel.ISupportInitialize)(this.anmeGDVCriticalViews)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anmeChartDisplay)).BeginInit();
             this.tabPersonalData.SuspendLayout();
+            this.perPnlActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.perNudTrainingHeartRade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.perNudRestingPulse)).BeginInit();
+            this.perPnlDisplay.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControll
@@ -137,93 +150,158 @@ namespace WinPulsDaten
             this.tabControll.Location = new System.Drawing.Point(12, 12);
             this.tabControll.Name = "tabControll";
             this.tabControll.SelectedIndex = 0;
-            this.tabControll.Size = new System.Drawing.Size(776, 572);
+            this.tabControll.Size = new System.Drawing.Size(786, 475);
             this.tabControll.TabIndex = 0;
             this.tabControll.SelectedIndexChanged += new System.EventHandler(this.OnTabControllChangeView);
             // 
             // tabWelcome
             // 
+            this.tabWelcome.Controls.Add(this.welLbBkrlogo);
+            this.tabWelcome.Controls.Add(this.welLbWelcome);
             this.tabWelcome.Location = new System.Drawing.Point(4, 22);
             this.tabWelcome.Name = "tabWelcome";
-            this.tabWelcome.Size = new System.Drawing.Size(768, 546);
+            this.tabWelcome.Size = new System.Drawing.Size(778, 449);
             this.tabWelcome.TabIndex = 6;
             this.tabWelcome.Text = "Welcome";
             this.tabWelcome.UseVisualStyleBackColor = true;
             // 
+            // welLbBkrlogo
+            // 
+            this.welLbBkrlogo.Image = ((System.Drawing.Image)(resources.GetObject("welLbBkrlogo.Image")));
+            this.welLbBkrlogo.Location = new System.Drawing.Point(3, 306);
+            this.welLbBkrlogo.Name = "welLbBkrlogo";
+            this.welLbBkrlogo.Size = new System.Drawing.Size(279, 143);
+            this.welLbBkrlogo.TabIndex = 1;
+            // 
+            // welLbWelcome
+            // 
+            this.welLbWelcome.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.welLbWelcome.AutoSize = true;
+            this.welLbWelcome.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welLbWelcome.Location = new System.Drawing.Point(121, 34);
+            this.welLbWelcome.Name = "welLbWelcome";
+            this.welLbWelcome.Size = new System.Drawing.Size(542, 27);
+            this.welLbWelcome.TabIndex = 0;
+            this.welLbWelcome.Text = "Hello and welcome to the puls-analyser (Professional)";
+            // 
             // tabRegister
             // 
-            this.tabRegister.Controls.Add(this.regLbBirth);
-            this.tabRegister.Controls.Add(this.regLbTraincondition);
-            this.tabRegister.Controls.Add(this.regCbTrainingCondition);
-            this.tabRegister.Controls.Add(this.regTbFirstname);
-            this.tabRegister.Controls.Add(this.regDpBirth);
-            this.tabRegister.Controls.Add(this.regPanHf);
-            this.tabRegister.Controls.Add(this.regLbMaxHf);
-            this.tabRegister.Controls.Add(this.regLbSize);
-            this.tabRegister.Controls.Add(this.regLbWight);
-            this.tabRegister.Controls.Add(this.regLbM);
-            this.tabRegister.Controls.Add(this.regLbKG);
-            this.tabRegister.Controls.Add(this.regNudSize);
-            this.tabRegister.Controls.Add(this.regNudWight);
-            this.tabRegister.Controls.Add(this.regLbGender);
-            this.tabRegister.Controls.Add(this.regCbGender);
-            this.tabRegister.Controls.Add(this.regLbConfrimPassword);
-            this.tabRegister.Controls.Add(this.regLbPassword);
-            this.tabRegister.Controls.Add(this.regTbLastname);
-            this.tabRegister.Controls.Add(this.regLbLastname);
-            this.tabRegister.Controls.Add(this.regLbFirstname);
-            this.tabRegister.Controls.Add(this.regTbPasswordConfirm);
-            this.tabRegister.Controls.Add(this.regTbPassword);
-            this.tabRegister.Controls.Add(this.regBtnLogin);
+            this.tabRegister.Controls.Add(this.regPnlCenter);
             this.tabRegister.Location = new System.Drawing.Point(4, 22);
             this.tabRegister.Name = "tabRegister";
             this.tabRegister.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegister.Size = new System.Drawing.Size(768, 546);
+            this.tabRegister.Size = new System.Drawing.Size(778, 449);
             this.tabRegister.TabIndex = 0;
             this.tabRegister.Text = "Register";
             this.tabRegister.UseVisualStyleBackColor = true;
             // 
+            // regPnlCenter
+            // 
+            this.regPnlCenter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.regPnlCenter.Controls.Add(this.regTbPassword);
+            this.regPnlCenter.Controls.Add(this.regBtnLogin);
+            this.regPnlCenter.Controls.Add(this.regLbBirth);
+            this.regPnlCenter.Controls.Add(this.regLbFirstname);
+            this.regPnlCenter.Controls.Add(this.regLbTraincondition);
+            this.regPnlCenter.Controls.Add(this.regLbLastname);
+            this.regPnlCenter.Controls.Add(this.regCbTrainingCondition);
+            this.regPnlCenter.Controls.Add(this.regTbLastname);
+            this.regPnlCenter.Controls.Add(this.regDpBirth);
+            this.regPnlCenter.Controls.Add(this.regPanHf);
+            this.regPnlCenter.Controls.Add(this.regTbFirstname);
+            this.regPnlCenter.Controls.Add(this.regLbMaxHf);
+            this.regPnlCenter.Controls.Add(this.regLbPassword);
+            this.regPnlCenter.Controls.Add(this.regLbSize);
+            this.regPnlCenter.Controls.Add(this.regTbPasswordConfirm);
+            this.regPnlCenter.Controls.Add(this.regLbWight);
+            this.regPnlCenter.Controls.Add(this.regLbConfrimPassword);
+            this.regPnlCenter.Controls.Add(this.regLbM);
+            this.regPnlCenter.Controls.Add(this.regCbGender);
+            this.regPnlCenter.Controls.Add(this.regLbKG);
+            this.regPnlCenter.Controls.Add(this.regLbGender);
+            this.regPnlCenter.Controls.Add(this.regNudSize);
+            this.regPnlCenter.Controls.Add(this.regNudWight);
+            this.regPnlCenter.Location = new System.Drawing.Point(225, 23);
+            this.regPnlCenter.Name = "regPnlCenter";
+            this.regPnlCenter.Size = new System.Drawing.Size(360, 399);
+            this.regPnlCenter.TabIndex = 28;
+            // 
+            // regTbPassword
+            // 
+            this.regTbPassword.Location = new System.Drawing.Point(7, 73);
+            this.regTbPassword.Name = "regTbPassword";
+            this.regTbPassword.Size = new System.Drawing.Size(347, 20);
+            this.regTbPassword.TabIndex = 3;
+            // 
+            // regBtnLogin
+            // 
+            this.regBtnLogin.Location = new System.Drawing.Point(119, 365);
+            this.regBtnLogin.Name = "regBtnLogin";
+            this.regBtnLogin.Size = new System.Drawing.Size(135, 23);
+            this.regBtnLogin.TabIndex = 13;
+            this.regBtnLogin.Text = "Register";
+            this.regBtnLogin.UseVisualStyleBackColor = true;
+            this.regBtnLogin.Click += new System.EventHandler(this.OnRegRegisterClicked);
+            // 
             // regLbBirth
             // 
             this.regLbBirth.AutoSize = true;
-            this.regLbBirth.Location = new System.Drawing.Point(100, 366);
+            this.regLbBirth.Location = new System.Drawing.Point(4, 298);
             this.regLbBirth.Name = "regLbBirth";
             this.regLbBirth.Size = new System.Drawing.Size(45, 13);
             this.regLbBirth.TabIndex = 27;
             this.regLbBirth.Text = "Birthday";
             // 
+            // regLbFirstname
+            // 
+            this.regLbFirstname.AutoSize = true;
+            this.regLbFirstname.Location = new System.Drawing.Point(4, 4);
+            this.regLbFirstname.Name = "regLbFirstname";
+            this.regLbFirstname.Size = new System.Drawing.Size(52, 13);
+            this.regLbFirstname.TabIndex = 6;
+            this.regLbFirstname.Text = "Firstname";
+            // 
             // regLbTraincondition
             // 
             this.regLbTraincondition.AutoSize = true;
-            this.regLbTraincondition.Location = new System.Drawing.Point(103, 315);
+            this.regLbTraincondition.Location = new System.Drawing.Point(4, 247);
             this.regLbTraincondition.Name = "regLbTraincondition";
             this.regLbTraincondition.Size = new System.Drawing.Size(92, 13);
             this.regLbTraincondition.TabIndex = 26;
             this.regLbTraincondition.Text = "Training Condition";
             // 
+            // regLbLastname
+            // 
+            this.regLbLastname.AutoSize = true;
+            this.regLbLastname.Location = new System.Drawing.Point(180, 4);
+            this.regLbLastname.Name = "regLbLastname";
+            this.regLbLastname.Size = new System.Drawing.Size(53, 13);
+            this.regLbLastname.TabIndex = 7;
+            this.regLbLastname.Text = "Lastname";
+            // 
             // regCbTrainingCondition
             // 
             this.regCbTrainingCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.regCbTrainingCondition.FormattingEnabled = true;
-            this.regCbTrainingCondition.Location = new System.Drawing.Point(103, 331);
+            this.regCbTrainingCondition.Location = new System.Drawing.Point(7, 263);
             this.regCbTrainingCondition.Name = "regCbTrainingCondition";
             this.regCbTrainingCondition.Size = new System.Drawing.Size(168, 21);
-            this.regCbTrainingCondition.TabIndex = 25;
+            this.regCbTrainingCondition.TabIndex = 8;
             this.regCbTrainingCondition.SelectedIndexChanged += new System.EventHandler(this.OnRegHFValueChange);
             // 
-            // regTbFirstname
+            // regTbLastname
             // 
-            this.regTbFirstname.Location = new System.Drawing.Point(109, 75);
-            this.regTbFirstname.Name = "regTbFirstname";
-            this.regTbFirstname.Size = new System.Drawing.Size(168, 20);
-            this.regTbFirstname.TabIndex = 1;
+            this.regTbLastname.Location = new System.Drawing.Point(183, 23);
+            this.regTbLastname.Name = "regTbLastname";
+            this.regTbLastname.Size = new System.Drawing.Size(171, 20);
+            this.regTbLastname.TabIndex = 2;
             // 
             // regDpBirth
             // 
-            this.regDpBirth.Location = new System.Drawing.Point(103, 382);
+            this.regDpBirth.Location = new System.Drawing.Point(7, 314);
             this.regDpBirth.Name = "regDpBirth";
-            this.regDpBirth.Size = new System.Drawing.Size(330, 20);
-            this.regDpBirth.TabIndex = 11;
+            this.regDpBirth.Size = new System.Drawing.Size(347, 20);
+            this.regDpBirth.TabIndex = 12;
             // 
             // regPanHf
             // 
@@ -232,16 +310,16 @@ namespace WinPulsDaten
             this.regPanHf.Controls.Add(this.regNudHfMax);
             this.regPanHf.Controls.Add(this.regRadHfAuto);
             this.regPanHf.Controls.Add(this.regRadHFManual);
-            this.regPanHf.Location = new System.Drawing.Point(285, 280);
+            this.regPanHf.Location = new System.Drawing.Point(183, 212);
             this.regPanHf.Name = "regPanHf";
-            this.regPanHf.Size = new System.Drawing.Size(148, 79);
+            this.regPanHf.Size = new System.Drawing.Size(171, 79);
             this.regPanHf.TabIndex = 24;
             // 
             // regBtnInfo
             // 
             this.regBtnInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("regBtnInfo.BackgroundImage")));
             this.regBtnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.regBtnInfo.Location = new System.Drawing.Point(121, 4);
+            this.regBtnInfo.Location = new System.Drawing.Point(144, 4);
             this.regBtnInfo.Name = "regBtnInfo";
             this.regBtnInfo.Size = new System.Drawing.Size(20, 20);
             this.regBtnInfo.TabIndex = 28;
@@ -258,8 +336,8 @@ namespace WinPulsDaten
             0,
             0});
             this.regNudHfMax.Name = "regNudHfMax";
-            this.regNudHfMax.Size = new System.Drawing.Size(137, 20);
-            this.regNudHfMax.TabIndex = 9;
+            this.regNudHfMax.Size = new System.Drawing.Size(160, 20);
+            this.regNudHfMax.TabIndex = 11;
             // 
             // regRadHfAuto
             // 
@@ -267,7 +345,7 @@ namespace WinPulsDaten
             this.regRadHfAuto.Location = new System.Drawing.Point(3, 27);
             this.regRadHfAuto.Name = "regRadHfAuto";
             this.regRadHfAuto.Size = new System.Drawing.Size(69, 17);
-            this.regRadHfAuto.TabIndex = 8;
+            this.regRadHfAuto.TabIndex = 10;
             this.regRadHfAuto.TabStop = true;
             this.regRadHfAuto.Text = "Calculate";
             this.regRadHfAuto.UseVisualStyleBackColor = true;
@@ -279,56 +357,110 @@ namespace WinPulsDaten
             this.regRadHFManual.Location = new System.Drawing.Point(3, 4);
             this.regRadHFManual.Name = "regRadHFManual";
             this.regRadHFManual.Size = new System.Drawing.Size(95, 17);
-            this.regRadHFManual.TabIndex = 7;
+            this.regRadHFManual.TabIndex = 9;
             this.regRadHFManual.TabStop = true;
             this.regRadHFManual.Text = "Assign yourself";
             this.regRadHFManual.UseVisualStyleBackColor = true;
             this.regRadHFManual.CheckedChanged += new System.EventHandler(this.OnRegSelectMangualHF);
             // 
+            // regTbFirstname
+            // 
+            this.regTbFirstname.Location = new System.Drawing.Point(7, 23);
+            this.regTbFirstname.Name = "regTbFirstname";
+            this.regTbFirstname.Size = new System.Drawing.Size(168, 20);
+            this.regTbFirstname.TabIndex = 1;
+            // 
             // regLbMaxHf
             // 
             this.regLbMaxHf.AutoSize = true;
-            this.regLbMaxHf.Location = new System.Drawing.Point(282, 264);
+            this.regLbMaxHf.Location = new System.Drawing.Point(180, 196);
             this.regLbMaxHf.Name = "regLbMaxHf";
             this.regLbMaxHf.Size = new System.Drawing.Size(74, 13);
             this.regLbMaxHf.TabIndex = 22;
             this.regLbMaxHf.Text = "Max HF-Value";
             // 
+            // regLbPassword
+            // 
+            this.regLbPassword.AutoSize = true;
+            this.regLbPassword.Location = new System.Drawing.Point(4, 57);
+            this.regLbPassword.Name = "regLbPassword";
+            this.regLbPassword.Size = new System.Drawing.Size(53, 13);
+            this.regLbPassword.TabIndex = 9;
+            this.regLbPassword.Text = "Password";
+            // 
             // regLbSize
             // 
             this.regLbSize.AutoSize = true;
-            this.regLbSize.Location = new System.Drawing.Point(282, 209);
+            this.regLbSize.Location = new System.Drawing.Point(180, 143);
             this.regLbSize.Name = "regLbSize";
             this.regLbSize.Size = new System.Drawing.Size(27, 13);
             this.regLbSize.TabIndex = 20;
             this.regLbSize.Text = "Size";
             // 
+            // regTbPasswordConfirm
+            // 
+            this.regTbPasswordConfirm.Location = new System.Drawing.Point(7, 115);
+            this.regTbPasswordConfirm.Name = "regTbPasswordConfirm";
+            this.regTbPasswordConfirm.Size = new System.Drawing.Size(347, 20);
+            this.regTbPasswordConfirm.TabIndex = 4;
+            // 
             // regLbWight
             // 
             this.regLbWight.AutoSize = true;
-            this.regLbWight.Location = new System.Drawing.Point(103, 209);
+            this.regLbWight.Location = new System.Drawing.Point(4, 143);
             this.regLbWight.Name = "regLbWight";
             this.regLbWight.Size = new System.Drawing.Size(41, 13);
             this.regLbWight.TabIndex = 19;
             this.regLbWight.Text = "Weight";
             // 
+            // regLbConfrimPassword
+            // 
+            this.regLbConfrimPassword.AutoSize = true;
+            this.regLbConfrimPassword.Location = new System.Drawing.Point(4, 99);
+            this.regLbConfrimPassword.Name = "regLbConfrimPassword";
+            this.regLbConfrimPassword.Size = new System.Drawing.Size(91, 13);
+            this.regLbConfrimPassword.TabIndex = 10;
+            this.regLbConfrimPassword.Text = "Confrim Password";
+            // 
             // regLbM
             // 
             this.regLbM.AutoSize = true;
-            this.regLbM.Location = new System.Drawing.Point(430, 231);
+            this.regLbM.Location = new System.Drawing.Point(334, 163);
             this.regLbM.Name = "regLbM";
             this.regLbM.Size = new System.Drawing.Size(15, 13);
             this.regLbM.TabIndex = 18;
             this.regLbM.Text = "m";
             // 
+            // regCbGender
+            // 
+            this.regCbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regCbGender.FormattingEnabled = true;
+            this.regCbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.regCbGender.Location = new System.Drawing.Point(7, 212);
+            this.regCbGender.Name = "regCbGender";
+            this.regCbGender.Size = new System.Drawing.Size(168, 21);
+            this.regCbGender.TabIndex = 7;
+            this.regCbGender.SelectedIndexChanged += new System.EventHandler(this.OnRegHFValueChange);
+            // 
             // regLbKG
             // 
             this.regLbKG.AutoSize = true;
-            this.regLbKG.Location = new System.Drawing.Point(254, 230);
+            this.regLbKG.Location = new System.Drawing.Point(158, 162);
             this.regLbKG.Name = "regLbKG";
             this.regLbKG.Size = new System.Drawing.Size(19, 13);
             this.regLbKG.TabIndex = 17;
             this.regLbKG.Text = "kg";
+            // 
+            // regLbGender
+            // 
+            this.regLbGender.AutoSize = true;
+            this.regLbGender.Location = new System.Drawing.Point(4, 196);
+            this.regLbGender.Name = "regLbGender";
+            this.regLbGender.Size = new System.Drawing.Size(42, 13);
+            this.regLbGender.TabIndex = 12;
+            this.regLbGender.Text = "Gender";
             // 
             // regNudSize
             // 
@@ -338,7 +470,7 @@ namespace WinPulsDaten
             0,
             0,
             65536});
-            this.regNudSize.Location = new System.Drawing.Point(282, 227);
+            this.regNudSize.Location = new System.Drawing.Point(183, 159);
             this.regNudSize.Maximum = new decimal(new int[] {
             250,
             0,
@@ -361,7 +493,7 @@ namespace WinPulsDaten
             // 
             // regNudWight
             // 
-            this.regNudWight.Location = new System.Drawing.Point(103, 227);
+            this.regNudWight.Location = new System.Drawing.Point(7, 159);
             this.regNudWight.Maximum = new decimal(new int[] {
             150,
             0,
@@ -382,169 +514,89 @@ namespace WinPulsDaten
             0});
             this.regNudWight.ValueChanged += new System.EventHandler(this.OnRegHFValueChange);
             // 
-            // regLbGender
-            // 
-            this.regLbGender.AutoSize = true;
-            this.regLbGender.Location = new System.Drawing.Point(103, 264);
-            this.regLbGender.Name = "regLbGender";
-            this.regLbGender.Size = new System.Drawing.Size(42, 13);
-            this.regLbGender.TabIndex = 12;
-            this.regLbGender.Text = "Gender";
-            // 
-            // regCbGender
-            // 
-            this.regCbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.regCbGender.FormattingEnabled = true;
-            this.regCbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.regCbGender.Location = new System.Drawing.Point(103, 280);
-            this.regCbGender.Name = "regCbGender";
-            this.regCbGender.Size = new System.Drawing.Size(168, 21);
-            this.regCbGender.TabIndex = 10;
-            this.regCbGender.SelectedIndexChanged += new System.EventHandler(this.OnRegHFValueChange);
-            // 
-            // regLbConfrimPassword
-            // 
-            this.regLbConfrimPassword.AutoSize = true;
-            this.regLbConfrimPassword.Location = new System.Drawing.Point(106, 159);
-            this.regLbConfrimPassword.Name = "regLbConfrimPassword";
-            this.regLbConfrimPassword.Size = new System.Drawing.Size(91, 13);
-            this.regLbConfrimPassword.TabIndex = 10;
-            this.regLbConfrimPassword.Text = "Confrim Password";
-            // 
-            // regLbPassword
-            // 
-            this.regLbPassword.AutoSize = true;
-            this.regLbPassword.Location = new System.Drawing.Point(106, 109);
-            this.regLbPassword.Name = "regLbPassword";
-            this.regLbPassword.Size = new System.Drawing.Size(53, 13);
-            this.regLbPassword.TabIndex = 9;
-            this.regLbPassword.Text = "Password";
-            // 
-            // regTbLastname
-            // 
-            this.regTbLastname.Location = new System.Drawing.Point(285, 75);
-            this.regTbLastname.Name = "regTbLastname";
-            this.regTbLastname.Size = new System.Drawing.Size(168, 20);
-            this.regTbLastname.TabIndex = 2;
-            // 
-            // regLbLastname
-            // 
-            this.regLbLastname.AutoSize = true;
-            this.regLbLastname.Location = new System.Drawing.Point(282, 56);
-            this.regLbLastname.Name = "regLbLastname";
-            this.regLbLastname.Size = new System.Drawing.Size(53, 13);
-            this.regLbLastname.TabIndex = 7;
-            this.regLbLastname.Text = "Lastname";
-            // 
-            // regLbFirstname
-            // 
-            this.regLbFirstname.AutoSize = true;
-            this.regLbFirstname.Location = new System.Drawing.Point(106, 56);
-            this.regLbFirstname.Name = "regLbFirstname";
-            this.regLbFirstname.Size = new System.Drawing.Size(52, 13);
-            this.regLbFirstname.TabIndex = 6;
-            this.regLbFirstname.Text = "Firstname";
-            // 
-            // regTbPasswordConfirm
-            // 
-            this.regTbPasswordConfirm.Location = new System.Drawing.Point(106, 175);
-            this.regTbPasswordConfirm.Name = "regTbPasswordConfirm";
-            this.regTbPasswordConfirm.Size = new System.Drawing.Size(347, 20);
-            this.regTbPasswordConfirm.TabIndex = 4;
-            // 
-            // regTbPassword
-            // 
-            this.regTbPassword.Location = new System.Drawing.Point(106, 125);
-            this.regTbPassword.Name = "regTbPassword";
-            this.regTbPassword.Size = new System.Drawing.Size(347, 20);
-            this.regTbPassword.TabIndex = 3;
-            // 
-            // regBtnLogin
-            // 
-            this.regBtnLogin.Location = new System.Drawing.Point(200, 453);
-            this.regBtnLogin.Name = "regBtnLogin";
-            this.regBtnLogin.Size = new System.Drawing.Size(135, 23);
-            this.regBtnLogin.TabIndex = 12;
-            this.regBtnLogin.Text = "Register";
-            this.regBtnLogin.UseVisualStyleBackColor = true;
-            this.regBtnLogin.Click += new System.EventHandler(this.OnRegRegisterClicked);
-            // 
             // tabLogin
             // 
-            this.tabLogin.Controls.Add(this.logLbPassword);
-            this.tabLogin.Controls.Add(this.logTbLastname);
-            this.tabLogin.Controls.Add(this.logLbLastname);
-            this.tabLogin.Controls.Add(this.logLbFirstname);
-            this.tabLogin.Controls.Add(this.logTbFirstname);
-            this.tabLogin.Controls.Add(this.logTbPassword);
-            this.tabLogin.Controls.Add(this.logBtnLogin);
+            this.tabLogin.Controls.Add(this.logPnlDisplay);
             this.tabLogin.Location = new System.Drawing.Point(4, 22);
             this.tabLogin.Name = "tabLogin";
             this.tabLogin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogin.Size = new System.Drawing.Size(768, 546);
+            this.tabLogin.Size = new System.Drawing.Size(778, 449);
             this.tabLogin.TabIndex = 1;
             this.tabLogin.Text = "Login";
             this.tabLogin.UseVisualStyleBackColor = true;
             // 
-            // logLbPassword
+            // logPnlDisplay
             // 
-            this.logLbPassword.AutoSize = true;
-            this.logLbPassword.Location = new System.Drawing.Point(64, 103);
-            this.logLbPassword.Name = "logLbPassword";
-            this.logLbPassword.Size = new System.Drawing.Size(53, 13);
-            this.logLbPassword.TabIndex = 14;
-            this.logLbPassword.Text = "Password";
-            // 
-            // logTbLastname
-            // 
-            this.logTbLastname.Location = new System.Drawing.Point(243, 69);
-            this.logTbLastname.Name = "logTbLastname";
-            this.logTbLastname.Size = new System.Drawing.Size(168, 20);
-            this.logTbLastname.TabIndex = 14;
-            // 
-            // logLbLastname
-            // 
-            this.logLbLastname.AutoSize = true;
-            this.logLbLastname.Location = new System.Drawing.Point(240, 50);
-            this.logLbLastname.Name = "logLbLastname";
-            this.logLbLastname.Size = new System.Drawing.Size(53, 13);
-            this.logLbLastname.TabIndex = 12;
-            this.logLbLastname.Text = "Lastname";
-            // 
-            // logLbFirstname
-            // 
-            this.logLbFirstname.AutoSize = true;
-            this.logLbFirstname.Location = new System.Drawing.Point(64, 50);
-            this.logLbFirstname.Name = "logLbFirstname";
-            this.logLbFirstname.Size = new System.Drawing.Size(52, 13);
-            this.logLbFirstname.TabIndex = 11;
-            this.logLbFirstname.Text = "Firstname";
-            // 
-            // logTbFirstname
-            // 
-            this.logTbFirstname.Location = new System.Drawing.Point(64, 69);
-            this.logTbFirstname.Name = "logTbFirstname";
-            this.logTbFirstname.Size = new System.Drawing.Size(168, 20);
-            this.logTbFirstname.TabIndex = 13;
+            this.logPnlDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.logPnlDisplay.Controls.Add(this.logTbPassword);
+            this.logPnlDisplay.Controls.Add(this.logBtnLogin);
+            this.logPnlDisplay.Controls.Add(this.logLbPassword);
+            this.logPnlDisplay.Controls.Add(this.logTbFirstname);
+            this.logPnlDisplay.Controls.Add(this.logTbLastname);
+            this.logPnlDisplay.Controls.Add(this.logLbFirstname);
+            this.logPnlDisplay.Controls.Add(this.logLbLastname);
+            this.logPnlDisplay.Location = new System.Drawing.Point(229, 158);
+            this.logPnlDisplay.Name = "logPnlDisplay";
+            this.logPnlDisplay.Size = new System.Drawing.Size(356, 142);
+            this.logPnlDisplay.TabIndex = 17;
             // 
             // logTbPassword
             // 
-            this.logTbPassword.Location = new System.Drawing.Point(65, 127);
+            this.logTbPassword.Location = new System.Drawing.Point(3, 73);
             this.logTbPassword.Name = "logTbPassword";
-            this.logTbPassword.Size = new System.Drawing.Size(167, 20);
+            this.logTbPassword.Size = new System.Drawing.Size(346, 20);
             this.logTbPassword.TabIndex = 15;
             // 
             // logBtnLogin
             // 
-            this.logBtnLogin.Location = new System.Drawing.Point(64, 164);
+            this.logBtnLogin.Location = new System.Drawing.Point(122, 110);
             this.logBtnLogin.Name = "logBtnLogin";
             this.logBtnLogin.Size = new System.Drawing.Size(105, 23);
             this.logBtnLogin.TabIndex = 16;
             this.logBtnLogin.Text = "Login";
             this.logBtnLogin.UseVisualStyleBackColor = true;
             this.logBtnLogin.Click += new System.EventHandler(this.OnLogLoginClicked);
+            // 
+            // logLbPassword
+            // 
+            this.logLbPassword.AutoSize = true;
+            this.logLbPassword.Location = new System.Drawing.Point(0, 57);
+            this.logLbPassword.Name = "logLbPassword";
+            this.logLbPassword.Size = new System.Drawing.Size(53, 13);
+            this.logLbPassword.TabIndex = 14;
+            this.logLbPassword.Text = "Password";
+            // 
+            // logTbFirstname
+            // 
+            this.logTbFirstname.Location = new System.Drawing.Point(3, 23);
+            this.logTbFirstname.Name = "logTbFirstname";
+            this.logTbFirstname.Size = new System.Drawing.Size(168, 20);
+            this.logTbFirstname.TabIndex = 13;
+            // 
+            // logTbLastname
+            // 
+            this.logTbLastname.Location = new System.Drawing.Point(182, 23);
+            this.logTbLastname.Name = "logTbLastname";
+            this.logTbLastname.Size = new System.Drawing.Size(168, 20);
+            this.logTbLastname.TabIndex = 14;
+            // 
+            // logLbFirstname
+            // 
+            this.logLbFirstname.AutoSize = true;
+            this.logLbFirstname.Location = new System.Drawing.Point(0, 7);
+            this.logLbFirstname.Name = "logLbFirstname";
+            this.logLbFirstname.Size = new System.Drawing.Size(52, 13);
+            this.logLbFirstname.TabIndex = 11;
+            this.logLbFirstname.Text = "Firstname";
+            // 
+            // logLbLastname
+            // 
+            this.logLbLastname.AutoSize = true;
+            this.logLbLastname.Location = new System.Drawing.Point(179, 7);
+            this.logLbLastname.Name = "logLbLastname";
+            this.logLbLastname.Size = new System.Drawing.Size(53, 13);
+            this.logLbLastname.TabIndex = 12;
+            this.logLbLastname.Text = "Lastname";
             // 
             // tabStatsAll
             // 
@@ -553,7 +605,7 @@ namespace WinPulsDaten
             this.tabStatsAll.Controls.Add(this.staChartDisplay);
             this.tabStatsAll.Location = new System.Drawing.Point(4, 22);
             this.tabStatsAll.Name = "tabStatsAll";
-            this.tabStatsAll.Size = new System.Drawing.Size(768, 546);
+            this.tabStatsAll.Size = new System.Drawing.Size(778, 449);
             this.tabStatsAll.TabIndex = 2;
             this.tabStatsAll.Text = "Analysis (All)";
             this.tabStatsAll.UseVisualStyleBackColor = true;
@@ -582,17 +634,20 @@ namespace WinPulsDaten
             // 
             // staChartDisplay
             // 
-            chartArea3.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend3);
-            this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
+            this.staChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend1);
+            this.staChartDisplay.Location = new System.Drawing.Point(1, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.staChartDisplay.Series.Add(series3);
-            this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.staChartDisplay.Series.Add(series1);
+            this.staChartDisplay.Size = new System.Drawing.Size(809, 396);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
             // 
@@ -602,15 +657,16 @@ namespace WinPulsDaten
             this.tabSettings.Controls.Add(this.setBtnDelte);
             this.tabSettings.Location = new System.Drawing.Point(4, 22);
             this.tabSettings.Name = "tabSettings";
-            this.tabSettings.Size = new System.Drawing.Size(768, 546);
+            this.tabSettings.Size = new System.Drawing.Size(778, 449);
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
             // 
             // setChbDeleteSuperUser
             // 
+            this.setChbDeleteSuperUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.setChbDeleteSuperUser.AutoSize = true;
-            this.setChbDeleteSuperUser.Location = new System.Drawing.Point(138, 146);
+            this.setChbDeleteSuperUser.Location = new System.Drawing.Point(331, 196);
             this.setChbDeleteSuperUser.Name = "setChbDeleteSuperUser";
             this.setChbDeleteSuperUser.Size = new System.Drawing.Size(115, 17);
             this.setChbDeleteSuperUser.TabIndex = 1;
@@ -619,7 +675,8 @@ namespace WinPulsDaten
             // 
             // setBtnDelte
             // 
-            this.setBtnDelte.Location = new System.Drawing.Point(138, 169);
+            this.setBtnDelte.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.setBtnDelte.Location = new System.Drawing.Point(331, 219);
             this.setBtnDelte.Name = "setBtnDelte";
             this.setBtnDelte.Size = new System.Drawing.Size(147, 23);
             this.setBtnDelte.TabIndex = 0;
@@ -636,15 +693,16 @@ namespace WinPulsDaten
             this.tabAnalysisMe.Controls.Add(this.anmeChartDisplay);
             this.tabAnalysisMe.Location = new System.Drawing.Point(4, 22);
             this.tabAnalysisMe.Name = "tabAnalysisMe";
-            this.tabAnalysisMe.Size = new System.Drawing.Size(768, 546);
+            this.tabAnalysisMe.Size = new System.Drawing.Size(778, 449);
             this.tabAnalysisMe.TabIndex = 4;
             this.tabAnalysisMe.Text = "Analysis (Me)";
             this.tabAnalysisMe.UseVisualStyleBackColor = true;
             // 
             // anmeLbCriticalValues
             // 
+            this.anmeLbCriticalValues.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.anmeLbCriticalValues.AutoSize = true;
-            this.anmeLbCriticalValues.Location = new System.Drawing.Point(483, 60);
+            this.anmeLbCriticalValues.Location = new System.Drawing.Point(616, 63);
             this.anmeLbCriticalValues.Name = "anmeLbCriticalValues";
             this.anmeLbCriticalValues.Size = new System.Drawing.Size(72, 13);
             this.anmeLbCriticalValues.TabIndex = 20;
@@ -654,20 +712,21 @@ namespace WinPulsDaten
             // 
             this.anmeGDVCriticalViews.AllowUserToAddRows = false;
             this.anmeGDVCriticalViews.AllowUserToDeleteRows = false;
-            this.anmeGDVCriticalViews.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.anmeGDVCriticalViews.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.anmeGDVCriticalViews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.anmeGDVCriticalViews.DefaultCellStyle = dataGridViewCellStyle2;
-            this.anmeGDVCriticalViews.Location = new System.Drawing.Point(483, 76);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.anmeGDVCriticalViews.DefaultCellStyle = dataGridViewCellStyle1;
+            this.anmeGDVCriticalViews.Location = new System.Drawing.Point(490, 79);
             this.anmeGDVCriticalViews.Name = "anmeGDVCriticalViews";
             this.anmeGDVCriticalViews.ReadOnly = true;
-            this.anmeGDVCriticalViews.Size = new System.Drawing.Size(282, 467);
+            this.anmeGDVCriticalViews.Size = new System.Drawing.Size(320, 367);
             this.anmeGDVCriticalViews.TabIndex = 19;
             // 
             // label1
@@ -697,163 +756,206 @@ namespace WinPulsDaten
             this.anmeChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.anmeChartDisplay.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.anmeChartDisplay.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.anmeChartDisplay.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.anmeChartDisplay.Legends.Add(legend2);
             this.anmeChartDisplay.Location = new System.Drawing.Point(3, 51);
             this.anmeChartDisplay.Name = "anmeChartDisplay";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.anmeChartDisplay.Series.Add(series4);
-            this.anmeChartDisplay.Size = new System.Drawing.Size(474, 492);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.anmeChartDisplay.Series.Add(series2);
+            this.anmeChartDisplay.Size = new System.Drawing.Size(481, 395);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";
             // 
             // tabPersonalData
             // 
-            this.tabPersonalData.Controls.Add(this.pdLbWeightTitle);
-            this.tabPersonalData.Controls.Add(this.pdLbSizeTitle);
-            this.tabPersonalData.Controls.Add(this.pdLbLastnameTitle);
-            this.tabPersonalData.Controls.Add(this.pdLbFirstnameTitle);
-            this.tabPersonalData.Controls.Add(this.pdLbWeight);
-            this.tabPersonalData.Controls.Add(this.pdLbSize);
-            this.tabPersonalData.Controls.Add(this.pdLbLastname);
-            this.tabPersonalData.Controls.Add(this.pdLbFirstname);
-            this.tabPersonalData.Controls.Add(this.perLbTrainingHeartRade);
-            this.tabPersonalData.Controls.Add(this.perNudTrainingHeartRade);
-            this.tabPersonalData.Controls.Add(this.perLbRestingPulse);
-            this.tabPersonalData.Controls.Add(this.perLbActivity);
-            this.tabPersonalData.Controls.Add(this.perNudRestingPulse);
-            this.tabPersonalData.Controls.Add(this.perCbActivity);
+            this.tabPersonalData.Controls.Add(this.perLbCalculateTrainingRate);
+            this.tabPersonalData.Controls.Add(this.perLbInfos);
+            this.tabPersonalData.Controls.Add(this.perPnlActivity);
+            this.tabPersonalData.Controls.Add(this.perPnlDisplay);
             this.tabPersonalData.Location = new System.Drawing.Point(4, 22);
             this.tabPersonalData.Name = "tabPersonalData";
-            this.tabPersonalData.Size = new System.Drawing.Size(768, 546);
+            this.tabPersonalData.Size = new System.Drawing.Size(778, 449);
             this.tabPersonalData.TabIndex = 5;
             this.tabPersonalData.Text = "Personsal data";
             this.tabPersonalData.UseVisualStyleBackColor = true;
             // 
-            // pdLbWeight
+            // perLbCalculateTrainingRate
             // 
-            this.pdLbWeight.AutoSize = true;
-            this.pdLbWeight.Location = new System.Drawing.Point(111, 106);
-            this.pdLbWeight.Name = "pdLbWeight";
-            this.pdLbWeight.Size = new System.Drawing.Size(41, 13);
-            this.pdLbWeight.TabIndex = 10;
-            this.pdLbWeight.Text = "Weight";
+            this.perLbCalculateTrainingRate.AutoSize = true;
+            this.perLbCalculateTrainingRate.Location = new System.Drawing.Point(13, 162);
+            this.perLbCalculateTrainingRate.Name = "perLbCalculateTrainingRate";
+            this.perLbCalculateTrainingRate.Size = new System.Drawing.Size(133, 13);
+            this.perLbCalculateTrainingRate.TabIndex = 18;
+            this.perLbCalculateTrainingRate.Text = "Calculate Training-Hartrate";
             // 
-            // pdLbSize
+            // perLbInfos
             // 
-            this.pdLbSize.AutoSize = true;
-            this.pdLbSize.Location = new System.Drawing.Point(111, 83);
-            this.pdLbSize.Name = "pdLbSize";
-            this.pdLbSize.Size = new System.Drawing.Size(27, 13);
-            this.pdLbSize.TabIndex = 9;
-            this.pdLbSize.Text = "Size";
+            this.perLbInfos.AutoSize = true;
+            this.perLbInfos.Location = new System.Drawing.Point(13, 16);
+            this.perLbInfos.Name = "perLbInfos";
+            this.perLbInfos.Size = new System.Drawing.Size(103, 13);
+            this.perLbInfos.TabIndex = 17;
+            this.perLbInfos.Text = "Personal Information";
             // 
-            // pdLbLastname
+            // perPnlActivity
             // 
-            this.pdLbLastname.AutoSize = true;
-            this.pdLbLastname.Location = new System.Drawing.Point(111, 58);
-            this.pdLbLastname.Name = "pdLbLastname";
-            this.pdLbLastname.Size = new System.Drawing.Size(53, 13);
-            this.pdLbLastname.TabIndex = 8;
-            this.pdLbLastname.Text = "Lastname";
-            // 
-            // pdLbFirstname
-            // 
-            this.pdLbFirstname.AutoSize = true;
-            this.pdLbFirstname.Location = new System.Drawing.Point(111, 33);
-            this.pdLbFirstname.Name = "pdLbFirstname";
-            this.pdLbFirstname.Size = new System.Drawing.Size(52, 13);
-            this.pdLbFirstname.TabIndex = 7;
-            this.pdLbFirstname.Text = "Firstname";
-            // 
-            // perLbTrainingHeartRade
-            // 
-            this.perLbTrainingHeartRade.AutoSize = true;
-            this.perLbTrainingHeartRade.Location = new System.Drawing.Point(279, 223);
-            this.perLbTrainingHeartRade.Name = "perLbTrainingHeartRade";
-            this.perLbTrainingHeartRade.Size = new System.Drawing.Size(100, 13);
-            this.perLbTrainingHeartRade.TabIndex = 6;
-            this.perLbTrainingHeartRade.Text = "Training Heart Rate";
+            this.perPnlActivity.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.perPnlActivity.Controls.Add(this.perNudTrainingHeartRade);
+            this.perPnlActivity.Controls.Add(this.perCbActivity);
+            this.perPnlActivity.Controls.Add(this.perLbTrainingHeartRade);
+            this.perPnlActivity.Controls.Add(this.perNudRestingPulse);
+            this.perPnlActivity.Controls.Add(this.perLbActivity);
+            this.perPnlActivity.Controls.Add(this.perLbRestingPulse);
+            this.perPnlActivity.Location = new System.Drawing.Point(16, 178);
+            this.perPnlActivity.Name = "perPnlActivity";
+            this.perPnlActivity.Size = new System.Drawing.Size(203, 148);
+            this.perPnlActivity.TabIndex = 16;
             // 
             // perNudTrainingHeartRade
             // 
             this.perNudTrainingHeartRade.Enabled = false;
-            this.perNudTrainingHeartRade.Location = new System.Drawing.Point(279, 239);
+            this.perNudTrainingHeartRade.Location = new System.Drawing.Point(3, 122);
+            this.perNudTrainingHeartRade.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.perNudTrainingHeartRade.Name = "perNudTrainingHeartRade";
             this.perNudTrainingHeartRade.Size = new System.Drawing.Size(192, 20);
             this.perNudTrainingHeartRade.TabIndex = 5;
-            // 
-            // perLbRestingPulse
-            // 
-            this.perLbRestingPulse.AutoSize = true;
-            this.perLbRestingPulse.Location = new System.Drawing.Point(279, 169);
-            this.perLbRestingPulse.Name = "perLbRestingPulse";
-            this.perLbRestingPulse.Size = new System.Drawing.Size(72, 13);
-            this.perLbRestingPulse.TabIndex = 4;
-            this.perLbRestingPulse.Text = "Resting Pulse";
-            // 
-            // perLbActivity
-            // 
-            this.perLbActivity.AutoSize = true;
-            this.perLbActivity.Location = new System.Drawing.Point(279, 120);
-            this.perLbActivity.Name = "perLbActivity";
-            this.perLbActivity.Size = new System.Drawing.Size(41, 13);
-            this.perLbActivity.TabIndex = 3;
-            this.perLbActivity.Text = "Activity";
-            // 
-            // perNudRestingPulse
-            // 
-            this.perNudRestingPulse.Location = new System.Drawing.Point(279, 185);
-            this.perNudRestingPulse.Name = "perNudRestingPulse";
-            this.perNudRestingPulse.Size = new System.Drawing.Size(192, 20);
-            this.perNudRestingPulse.TabIndex = 2;
-            this.perNudRestingPulse.ValueChanged += new System.EventHandler(this.OnePerRestingPulsChange);
             // 
             // perCbActivity
             // 
             this.perCbActivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.perCbActivity.FormattingEnabled = true;
-            this.perCbActivity.Location = new System.Drawing.Point(279, 136);
+            this.perCbActivity.Location = new System.Drawing.Point(3, 19);
             this.perCbActivity.Name = "perCbActivity";
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
             this.perCbActivity.TextChanged += new System.EventHandler(this.OnPerActivityChanged);
             // 
+            // perLbTrainingHeartRade
+            // 
+            this.perLbTrainingHeartRade.AutoSize = true;
+            this.perLbTrainingHeartRade.Location = new System.Drawing.Point(3, 106);
+            this.perLbTrainingHeartRade.Name = "perLbTrainingHeartRade";
+            this.perLbTrainingHeartRade.Size = new System.Drawing.Size(100, 13);
+            this.perLbTrainingHeartRade.TabIndex = 6;
+            this.perLbTrainingHeartRade.Text = "Training Heart Rate";
+            // 
+            // perNudRestingPulse
+            // 
+            this.perNudRestingPulse.Location = new System.Drawing.Point(3, 68);
+            this.perNudRestingPulse.Name = "perNudRestingPulse";
+            this.perNudRestingPulse.Size = new System.Drawing.Size(192, 20);
+            this.perNudRestingPulse.TabIndex = 2;
+            this.perNudRestingPulse.ValueChanged += new System.EventHandler(this.OnePerRestingPulsChange);
+            // 
+            // perLbActivity
+            // 
+            this.perLbActivity.AutoSize = true;
+            this.perLbActivity.Location = new System.Drawing.Point(3, 3);
+            this.perLbActivity.Name = "perLbActivity";
+            this.perLbActivity.Size = new System.Drawing.Size(41, 13);
+            this.perLbActivity.TabIndex = 3;
+            this.perLbActivity.Text = "Activity";
+            // 
+            // perLbRestingPulse
+            // 
+            this.perLbRestingPulse.AutoSize = true;
+            this.perLbRestingPulse.Location = new System.Drawing.Point(3, 52);
+            this.perLbRestingPulse.Name = "perLbRestingPulse";
+            this.perLbRestingPulse.Size = new System.Drawing.Size(72, 13);
+            this.perLbRestingPulse.TabIndex = 4;
+            this.perLbRestingPulse.Text = "Resting Pulse";
+            // 
+            // perPnlDisplay
+            // 
+            this.perPnlDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.perPnlDisplay.Controls.Add(this.pdLbWeight);
+            this.perPnlDisplay.Controls.Add(this.pdLbWeightTitle);
+            this.perPnlDisplay.Controls.Add(this.pdLbFirstname);
+            this.perPnlDisplay.Controls.Add(this.pdLbSizeTitle);
+            this.perPnlDisplay.Controls.Add(this.pdLbLastname);
+            this.perPnlDisplay.Controls.Add(this.pdLbLastnameTitle);
+            this.perPnlDisplay.Controls.Add(this.pdLbSize);
+            this.perPnlDisplay.Controls.Add(this.pdLbFirstnameTitle);
+            this.perPnlDisplay.Location = new System.Drawing.Point(16, 32);
+            this.perPnlDisplay.Name = "perPnlDisplay";
+            this.perPnlDisplay.Size = new System.Drawing.Size(176, 99);
+            this.perPnlDisplay.TabIndex = 15;
+            // 
+            // pdLbWeight
+            // 
+            this.pdLbWeight.AutoSize = true;
+            this.pdLbWeight.Location = new System.Drawing.Point(73, 78);
+            this.pdLbWeight.Name = "pdLbWeight";
+            this.pdLbWeight.Size = new System.Drawing.Size(41, 13);
+            this.pdLbWeight.TabIndex = 10;
+            this.pdLbWeight.Text = "Weight";
+            // 
             // pdLbWeightTitle
             // 
             this.pdLbWeightTitle.AutoSize = true;
-            this.pdLbWeightTitle.Location = new System.Drawing.Point(43, 106);
+            this.pdLbWeightTitle.Location = new System.Drawing.Point(5, 78);
             this.pdLbWeightTitle.Name = "pdLbWeightTitle";
             this.pdLbWeightTitle.Size = new System.Drawing.Size(41, 13);
             this.pdLbWeightTitle.TabIndex = 14;
             this.pdLbWeightTitle.Text = "Weight";
             // 
+            // pdLbFirstname
+            // 
+            this.pdLbFirstname.AutoSize = true;
+            this.pdLbFirstname.Location = new System.Drawing.Point(73, 5);
+            this.pdLbFirstname.Name = "pdLbFirstname";
+            this.pdLbFirstname.Size = new System.Drawing.Size(52, 13);
+            this.pdLbFirstname.TabIndex = 7;
+            this.pdLbFirstname.Text = "Firstname";
+            // 
             // pdLbSizeTitle
             // 
             this.pdLbSizeTitle.AutoSize = true;
-            this.pdLbSizeTitle.Location = new System.Drawing.Point(43, 83);
+            this.pdLbSizeTitle.Location = new System.Drawing.Point(5, 55);
             this.pdLbSizeTitle.Name = "pdLbSizeTitle";
             this.pdLbSizeTitle.Size = new System.Drawing.Size(27, 13);
             this.pdLbSizeTitle.TabIndex = 13;
             this.pdLbSizeTitle.Text = "Size";
             // 
+            // pdLbLastname
+            // 
+            this.pdLbLastname.AutoSize = true;
+            this.pdLbLastname.Location = new System.Drawing.Point(73, 30);
+            this.pdLbLastname.Name = "pdLbLastname";
+            this.pdLbLastname.Size = new System.Drawing.Size(53, 13);
+            this.pdLbLastname.TabIndex = 8;
+            this.pdLbLastname.Text = "Lastname";
+            // 
             // pdLbLastnameTitle
             // 
             this.pdLbLastnameTitle.AutoSize = true;
-            this.pdLbLastnameTitle.Location = new System.Drawing.Point(43, 58);
+            this.pdLbLastnameTitle.Location = new System.Drawing.Point(5, 30);
             this.pdLbLastnameTitle.Name = "pdLbLastnameTitle";
             this.pdLbLastnameTitle.Size = new System.Drawing.Size(53, 13);
             this.pdLbLastnameTitle.TabIndex = 12;
             this.pdLbLastnameTitle.Text = "Lastname";
             // 
+            // pdLbSize
+            // 
+            this.pdLbSize.AutoSize = true;
+            this.pdLbSize.Location = new System.Drawing.Point(73, 55);
+            this.pdLbSize.Name = "pdLbSize";
+            this.pdLbSize.Size = new System.Drawing.Size(27, 13);
+            this.pdLbSize.TabIndex = 9;
+            this.pdLbSize.Text = "Size";
+            // 
             // pdLbFirstnameTitle
             // 
             this.pdLbFirstnameTitle.AutoSize = true;
-            this.pdLbFirstnameTitle.Location = new System.Drawing.Point(43, 33);
+            this.pdLbFirstnameTitle.Location = new System.Drawing.Point(5, 5);
             this.pdLbFirstnameTitle.Name = "pdLbFirstnameTitle";
             this.pdLbFirstnameTitle.Size = new System.Drawing.Size(52, 13);
             this.pdLbFirstnameTitle.TabIndex = 11;
@@ -863,20 +965,24 @@ namespace WinPulsDaten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 596);
+            this.ClientSize = new System.Drawing.Size(810, 499);
             this.Controls.Add(this.tabControll);
             this.Name = "FrmMain";
-            this.Text = "FrmMain";
+            this.Text = "Puls-analyser (Professional)";
             this.tabControll.ResumeLayout(false);
+            this.tabWelcome.ResumeLayout(false);
+            this.tabWelcome.PerformLayout();
             this.tabRegister.ResumeLayout(false);
-            this.tabRegister.PerformLayout();
+            this.regPnlCenter.ResumeLayout(false);
+            this.regPnlCenter.PerformLayout();
             this.regPanHf.ResumeLayout(false);
             this.regPanHf.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regNudHfMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regNudSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regNudWight)).EndInit();
             this.tabLogin.ResumeLayout(false);
-            this.tabLogin.PerformLayout();
+            this.logPnlDisplay.ResumeLayout(false);
+            this.logPnlDisplay.PerformLayout();
             this.tabStatsAll.ResumeLayout(false);
             this.tabStatsAll.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staChartDisplay)).EndInit();
@@ -888,8 +994,12 @@ namespace WinPulsDaten
             ((System.ComponentModel.ISupportInitialize)(this.anmeChartDisplay)).EndInit();
             this.tabPersonalData.ResumeLayout(false);
             this.tabPersonalData.PerformLayout();
+            this.perPnlActivity.ResumeLayout(false);
+            this.perPnlActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.perNudTrainingHeartRade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.perNudRestingPulse)).EndInit();
+            this.perPnlDisplay.ResumeLayout(false);
+            this.perPnlDisplay.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -962,5 +1072,13 @@ namespace WinPulsDaten
         private System.Windows.Forms.Label pdLbSizeTitle;
         private System.Windows.Forms.Label pdLbLastnameTitle;
         private System.Windows.Forms.Label pdLbFirstnameTitle;
+        private System.Windows.Forms.Panel regPnlCenter;
+        private System.Windows.Forms.Panel logPnlDisplay;
+        private System.Windows.Forms.Label perLbCalculateTrainingRate;
+        private System.Windows.Forms.Label perLbInfos;
+        private System.Windows.Forms.Panel perPnlActivity;
+        private System.Windows.Forms.Panel perPnlDisplay;
+        private System.Windows.Forms.Label welLbWelcome;
+        private System.Windows.Forms.Label welLbBkrlogo;
     }
 }
