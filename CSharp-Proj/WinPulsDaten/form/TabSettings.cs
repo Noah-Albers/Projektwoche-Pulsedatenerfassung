@@ -33,7 +33,7 @@ namespace WinPulsDaten
                     this.UpdateTabs();
                 }
 
-                MessageBox.Show("All data successful deleted.");
+                MessageBox.Show("All data got deleted successfully.");
             }
             catch(Exception ex)
             {

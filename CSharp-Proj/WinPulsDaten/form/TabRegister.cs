@@ -95,31 +95,31 @@ namespace WinPulsDaten
 
             if (fname.Length <= 0)
             {
-                MessageBox.Show("Firstname is requried");
+                MessageBox.Show("Please specify a firstname.");
                 return;
             }
 
             if (lname.Length <= 0)
             {
-                MessageBox.Show("Lastname is requried");
+                MessageBox.Show("Please specify a lastname.");
                 return;
             }
 
             if (pwd.Length <= 0)
             {
-                MessageBox.Show("Password is required");
+                MessageBox.Show("Please specify a password.");
                 return;
             }
 
             if (!string.Equals(pwd, this.regTbPasswordConfirm.Text))
             {
-                MessageBox.Show("Password are not eqauls");
+                MessageBox.Show("The password are not equal.");
                 return;
             }
 
             if (hfmax <= 0)
             {
-                MessageBox.Show("HF is requried");
+                MessageBox.Show("The HF-Max value is required. Please set it manually or let it be calculated.");
                 return;
             }
 
