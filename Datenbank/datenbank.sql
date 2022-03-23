@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Mrz 2022 um 10:51
--- Server-Version: 10.4.22-MariaDB
--- PHP-Version: 8.0.13
+-- Erstellungszeit: 23. Mrz 2022 um 11:05
+-- Server-Version: 10.4.21-MariaDB
+-- PHP-Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,7 +69,8 @@ CREATE TABLE `person` (
 --
 
 INSERT INTO `person` (`ID`, `Firstname`, `Lastname`, `Birthday`, `Gender`, `Bodysize`, `Weight`, `TrainingCondition`, `HFmax`, `Passwd`, `PassSalt`, `IsSuperuser`) VALUES
-(18, 'Florian', 'Keller', '2009-02-02', 1, '1.00', 3, 1, 205, '1f43869ca28ccd3cefc957eac3e43900c731b9ac8151b7d05f8faeda37183fcf', '�\'�����rtv`VIJ��*����f�SOg	}�\0�+', b'0');
+(18, 'Florian', 'Keller', '2009-02-02', 1, '1.00', 3, 1, 205, '1f43869ca28ccd3cefc957eac3e43900c731b9ac8151b7d05f8faeda37183fcf', '�\'�����rtv`VIJ��*����f�SOg	}�\0�+', b'0'),
+(19, 'Testuser', 'testuser', '2022-03-23', 1, '1.00', 1, 1, 205, '13ec04438ff3d39ef0182c58c453f78c9fb44a45e96def342f7e42190412f0c9', '/���\Z�\\ݲ[��|F4$�Z�NGG�<G4)', b'0');
 
 -- --------------------------------------------------------
 
@@ -89,9 +90,8 @@ CREATE TABLE `pulsdata` (
 --
 
 INSERT INTO `pulsdata` (`Person`, `Activity`, `Value`, `RecordTime`) VALUES
-(18, 1, 81, '2022-02-11 13:41:20'),
-(18, 2, 153, '2022-02-11 13:41:58'),
-(18, 3, 155, '2022-02-11 13:45:48'),
+(18, 1, 153, '2022-02-11 13:41:58'),
+(18, 1, 155, '2022-02-11 13:45:48'),
 (18, 3, 162, '2022-02-11 14:02:12'),
 (18, 3, 166, '2022-02-11 14:09:58'),
 (18, 3, 169, '2022-02-11 14:22:00'),
@@ -104,7 +104,8 @@ INSERT INTO `pulsdata` (`Person`, `Activity`, `Value`, `RecordTime`) VALUES
 (18, 4, 154, '2022-03-01 09:27:06'),
 (18, 4, 168, '2022-03-01 09:42:06'),
 (18, 4, 181, '2022-03-01 09:57:06'),
-(18, 4, 160, '2022-03-01 10:12:06');
+(18, 4, 160, '2022-03-01 10:12:06'),
+(19, 1, 81, '2022-02-11 13:41:20');
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,7 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT für Tabelle `person`
 --
 ALTER TABLE `person`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT für Tabelle `trainingcondition`
