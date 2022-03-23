@@ -132,7 +132,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="data\Gender.cs" />
     <Compile Include="data\Person.cs" />
     <Compile Include="HillsCalculations.cs" />
     <Compile Include="Program.cs" />
