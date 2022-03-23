@@ -8,3 +8,10 @@ Folgenden Benutzer kann man als Testnutzer nutzen:
 Firstname: Florian
 Lastname: Keller
 Password: 123456
+
+1. Welcome Page: Noah
+2. Register: Florian
+3. Login: Noah
+4. Chart: Noah
+5. Persönliche Daten: Florian
+6. Super User: Florian
