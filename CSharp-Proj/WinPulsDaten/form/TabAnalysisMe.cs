@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using WinPulsDaten.data;
 using WinPulsDaten.database;
@@ -14,7 +15,7 @@ namespace WinPulsDaten
     {
 
         // Event: When this tab get's selected
-        private async Task tabAnalysisMeSelect()
+        private async Task OnTabAnalysisMeSelect()
         {
             this.SetTabeable(false, this.anmeCbActivity);
 
@@ -25,8 +26,9 @@ namespace WinPulsDaten
                 this.anmeCbActivity.LoadFromTable(await this.DB.SelectAsTableAsync(DBQuerys.select_activitys), Activity.Create);
             }catch(Exception e)
             {
-                // TODO
-                Console.WriteLine(e);
+                // Displays the error
+                this.tabControll.SelectedIndex = 0;
+                MessageBox.Show(e.Message, "Database-error");
             }
 
             this.SetTabeable(true, this.anmeCbActivity);
@@ -89,8 +91,8 @@ namespace WinPulsDaten
             }
             catch(Exception ex)
             {
-                // TODO
-                Console.WriteLine(ex);
+                this.tabControll.SelectedIndex = 0;
+                MessageBox.Show(ex.Message, "Database-error");
             }
 
             this.SetTabeable(true, this.anmeCbActivity);

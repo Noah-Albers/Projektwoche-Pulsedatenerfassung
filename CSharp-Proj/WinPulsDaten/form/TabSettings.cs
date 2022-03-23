@@ -12,15 +12,12 @@ namespace WinPulsDaten
     public partial class FrmMain
     {
 
-        private void tabSettingsSelect()
-        {
-
-        }
-
         // Event: When the user clicks the delete button
-        private async void setBtnDelte_Click(object sender, EventArgs e)
+        private async void OnSetButtonDelteClicked(object sender, EventArgs e)
         {
             var withSup = this.setChbDeleteSuperUser.Checked;
+
+            this.SetTabeable(false);
 
             try
             {
@@ -36,12 +33,15 @@ namespace WinPulsDaten
                     this.UpdateTabs();
                 }
 
-                MessageBox.Show("All data successful deleted");
+                MessageBox.Show("All data successful deleted.");
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex);
+                this.tabControll.SelectedIndex = 0;
+                MessageBox.Show(ex.Message, "Database-error");
             }
+
+            this.SetTabeable(true);
 
         }
 

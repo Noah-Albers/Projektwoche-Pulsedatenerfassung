@@ -59,8 +59,9 @@ namespace WinPulsDaten
             }
         }
 
+
         // Event: When the main tab-control changes view (Used to executed further tab-select events for the different tabs)
-        private async void tabControll_TabIndexChanged(object sender, EventArgs e)
+        private async void OnTabControllChangeView(object sender, EventArgs e)
         {
             // Ensures that there is a tab selected
             if (this.tabControll.SelectedTab == default)
@@ -70,19 +71,16 @@ namespace WinPulsDaten
             // Checks for the tab change and execute the change events if required
 
             if (this.tabControll.SelectedTab.Equals(this.tabStatsAll))
-                this.tabStatsAllSelect();
+                this.OnTabStatsAllSelect();
 
             else if (this.tabControll.SelectedTab.Equals(this.tabRegister))
-                this.tabRegisterSelect();
+                this.OnTabRegisterSelect();
 
             else if (this.tabControll.SelectedTab.Equals(this.tabAnalysisMe))
-                await this.tabAnalysisMeSelect();
-
-            else if (this.tabControll.SelectedTab.Equals(this.tabSettings))
-                this.tabSettingsSelect();
+                await this.OnTabAnalysisMeSelect();
 
             else if (this.tabControll.SelectedTab.Equals(this.tabPersonalData))
-                this.tabPersonalDataSelect();
+                this.OnTabPersonalDataSelect();
         }
     }
 }

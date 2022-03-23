@@ -11,42 +11,41 @@ namespace WinPulsDaten
 {
     public partial class FrmMain
     {
-        private void tabPersonalDataSelect()
+        // Event: When the tab gets switch to this view
+        private async void OnTabPersonalDataSelect()
         {
-            prelod();
-            
-            //TODO: Add label for values
+            // Updates the views
             this.pdLbFirstname.Text = User.Firstname;
             this.pdLbLastname.Text = User.Lastname;
             this.pdLbSize.Text = User.Size.ToString() + " m";
             this.pdLbWeight.Text = User.Weight.ToString() + " kg";
-        }
 
-        private async void prelod()
-        {
+            this.SetTabeable(false);
+
             try
             {
+                // Requests the data from the database
                 var tbl = await this.DB.SelectAsTableAsync(DBQuerys.select_activitysWithFactor);
 
                 this.perCbActivity.LoadFromTable(tbl, Activity.Create);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                this.tabControll.SelectedIndex = 0;
+                MessageBox.Show(ex.Message, "Database-error");
             }
 
+            this.SetTabeable(true);
         }
 
+        // Event: When the activity is changed by the user
+        private void OnPerActivityChanged(object sender, EventArgs e) => CalcuatePersonalTrainingHeartRate();
 
-        private void perCbActivity_TextChanged(object sender, EventArgs e)
-        {
-            calcuateTrainingHeartRate();
-        }
+        // Event: When the user changes the restig-puls
+        private void OnePerRestingPulsChange(object sender, EventArgs e) => CalcuatePersonalTrainingHeartRate();
 
-        private void perNudRestingPulse_ValueChanged(object sender, EventArgs e)
-        {
-            calcuateTrainingHeartRate();
-        }
-        private void calcuateTrainingHeartRate()
+        // Calculates the training heart-rate and update the form
+        private void CalcuatePersonalTrainingHeartRate()
         {
             perNudTrainingHeartRade.Value = ((decimal)User.HfMax - perNudRestingPulse.Value) * (decimal)((Activity)perCbActivity.SelectedItem).Factor + perNudRestingPulse.Value;
         }

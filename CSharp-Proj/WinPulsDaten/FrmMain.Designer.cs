@@ -31,13 +31,13 @@ namespace WinPulsDaten
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControll = new System.Windows.Forms.TabControl();
             this.tabWelcome = new System.Windows.Forms.TabPage();
             this.tabRegister = new System.Windows.Forms.TabPage();
@@ -100,6 +100,10 @@ namespace WinPulsDaten
             this.perLbActivity = new System.Windows.Forms.Label();
             this.perNudRestingPulse = new System.Windows.Forms.NumericUpDown();
             this.perCbActivity = new System.Windows.Forms.ComboBox();
+            this.pdLbWeightTitle = new System.Windows.Forms.Label();
+            this.pdLbSizeTitle = new System.Windows.Forms.Label();
+            this.pdLbLastnameTitle = new System.Windows.Forms.Label();
+            this.pdLbFirstnameTitle = new System.Windows.Forms.Label();
             this.tabControll.SuspendLayout();
             this.tabRegister.SuspendLayout();
             this.regPanHf.SuspendLayout();
@@ -135,7 +139,7 @@ namespace WinPulsDaten
             this.tabControll.SelectedIndex = 0;
             this.tabControll.Size = new System.Drawing.Size(776, 572);
             this.tabControll.TabIndex = 0;
-            this.tabControll.SelectedIndexChanged += new System.EventHandler(this.tabControll_TabIndexChanged);
+            this.tabControll.SelectedIndexChanged += new System.EventHandler(this.OnTabControllChangeView);
             // 
             // tabWelcome
             // 
@@ -242,7 +246,7 @@ namespace WinPulsDaten
             this.regBtnInfo.Size = new System.Drawing.Size(20, 20);
             this.regBtnInfo.TabIndex = 28;
             this.regBtnInfo.UseVisualStyleBackColor = true;
-            this.regBtnInfo.Click += new System.EventHandler(this.regBtnInfo_Click);
+            this.regBtnInfo.Click += new System.EventHandler(this.OnRegInfoButtonClicked);
             // 
             // regNudHfMax
             // 
@@ -267,7 +271,7 @@ namespace WinPulsDaten
             this.regRadHfAuto.TabStop = true;
             this.regRadHfAuto.Text = "Calculate";
             this.regRadHfAuto.UseVisualStyleBackColor = true;
-            this.regRadHfAuto.CheckedChanged += new System.EventHandler(this.regRadHfAuto_CheckedChanged);
+            this.regRadHfAuto.CheckedChanged += new System.EventHandler(this.OnRegSelectAutoHF);
             // 
             // regRadHFManual
             // 
@@ -286,7 +290,7 @@ namespace WinPulsDaten
             this.regLbMaxHf.AutoSize = true;
             this.regLbMaxHf.Location = new System.Drawing.Point(282, 264);
             this.regLbMaxHf.Name = "regLbMaxHf";
-            this.regLbMaxHf.Size = new System.Drawing.Size(75, 13);
+            this.regLbMaxHf.Size = new System.Drawing.Size(74, 13);
             this.regLbMaxHf.TabIndex = 22;
             this.regLbMaxHf.Text = "Max HF-Value";
             // 
@@ -538,7 +542,7 @@ namespace WinPulsDaten
             this.logBtnLogin.Name = "logBtnLogin";
             this.logBtnLogin.Size = new System.Drawing.Size(105, 23);
             this.logBtnLogin.TabIndex = 16;
-            this.logBtnLogin.Text = "button1";
+            this.logBtnLogin.Text = "Login";
             this.logBtnLogin.UseVisualStyleBackColor = true;
             this.logBtnLogin.Click += new System.EventHandler(this.OnLogLoginClicked);
             // 
@@ -574,20 +578,20 @@ namespace WinPulsDaten
             this.staCbMode.Name = "staCbMode";
             this.staCbMode.Size = new System.Drawing.Size(121, 21);
             this.staCbMode.TabIndex = 17;
-            this.staCbMode.SelectedIndexChanged += new System.EventHandler(this.staCbMode_SelectedIndexChanged);
+            this.staCbMode.SelectedIndexChanged += new System.EventHandler(this.OnStaModeChanged);
             // 
             // staChartDisplay
             // 
-            chartArea1.Name = "ChartArea1";
-            this.staChartDisplay.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.staChartDisplay.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.staChartDisplay.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.staChartDisplay.Legends.Add(legend3);
             this.staChartDisplay.Location = new System.Drawing.Point(3, 50);
             this.staChartDisplay.Name = "staChartDisplay";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.staChartDisplay.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.staChartDisplay.Series.Add(series3);
             this.staChartDisplay.Size = new System.Drawing.Size(762, 493);
             this.staChartDisplay.TabIndex = 0;
             this.staChartDisplay.Text = "chart";
@@ -621,7 +625,7 @@ namespace WinPulsDaten
             this.setBtnDelte.TabIndex = 0;
             this.setBtnDelte.Text = "Delete all data";
             this.setBtnDelte.UseVisualStyleBackColor = true;
-            this.setBtnDelte.Click += new System.EventHandler(this.setBtnDelte_Click);
+            this.setBtnDelte.Click += new System.EventHandler(this.OnSetButtonDelteClicked);
             // 
             // tabAnalysisMe
             // 
@@ -652,14 +656,14 @@ namespace WinPulsDaten
             this.anmeGDVCriticalViews.AllowUserToDeleteRows = false;
             this.anmeGDVCriticalViews.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.anmeGDVCriticalViews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.anmeGDVCriticalViews.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.anmeGDVCriticalViews.DefaultCellStyle = dataGridViewCellStyle2;
             this.anmeGDVCriticalViews.Location = new System.Drawing.Point(483, 76);
             this.anmeGDVCriticalViews.Name = "anmeGDVCriticalViews";
             this.anmeGDVCriticalViews.ReadOnly = true;
@@ -693,22 +697,26 @@ namespace WinPulsDaten
             this.anmeChartDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.anmeChartDisplay.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.anmeChartDisplay.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.anmeChartDisplay.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.anmeChartDisplay.Legends.Add(legend4);
             this.anmeChartDisplay.Location = new System.Drawing.Point(3, 51);
             this.anmeChartDisplay.Name = "anmeChartDisplay";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.anmeChartDisplay.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.anmeChartDisplay.Series.Add(series4);
             this.anmeChartDisplay.Size = new System.Drawing.Size(474, 492);
             this.anmeChartDisplay.TabIndex = 1;
             this.anmeChartDisplay.Text = "chart2";
             // 
             // tabPersonalData
             // 
+            this.tabPersonalData.Controls.Add(this.pdLbWeightTitle);
+            this.tabPersonalData.Controls.Add(this.pdLbSizeTitle);
+            this.tabPersonalData.Controls.Add(this.pdLbLastnameTitle);
+            this.tabPersonalData.Controls.Add(this.pdLbFirstnameTitle);
             this.tabPersonalData.Controls.Add(this.pdLbWeight);
             this.tabPersonalData.Controls.Add(this.pdLbSize);
             this.tabPersonalData.Controls.Add(this.pdLbLastname);
@@ -729,7 +737,7 @@ namespace WinPulsDaten
             // pdLbWeight
             // 
             this.pdLbWeight.AutoSize = true;
-            this.pdLbWeight.Location = new System.Drawing.Point(49, 110);
+            this.pdLbWeight.Location = new System.Drawing.Point(111, 106);
             this.pdLbWeight.Name = "pdLbWeight";
             this.pdLbWeight.Size = new System.Drawing.Size(41, 13);
             this.pdLbWeight.TabIndex = 10;
@@ -738,7 +746,7 @@ namespace WinPulsDaten
             // pdLbSize
             // 
             this.pdLbSize.AutoSize = true;
-            this.pdLbSize.Location = new System.Drawing.Point(49, 87);
+            this.pdLbSize.Location = new System.Drawing.Point(111, 83);
             this.pdLbSize.Name = "pdLbSize";
             this.pdLbSize.Size = new System.Drawing.Size(27, 13);
             this.pdLbSize.TabIndex = 9;
@@ -747,7 +755,7 @@ namespace WinPulsDaten
             // pdLbLastname
             // 
             this.pdLbLastname.AutoSize = true;
-            this.pdLbLastname.Location = new System.Drawing.Point(49, 62);
+            this.pdLbLastname.Location = new System.Drawing.Point(111, 58);
             this.pdLbLastname.Name = "pdLbLastname";
             this.pdLbLastname.Size = new System.Drawing.Size(53, 13);
             this.pdLbLastname.TabIndex = 8;
@@ -756,7 +764,7 @@ namespace WinPulsDaten
             // pdLbFirstname
             // 
             this.pdLbFirstname.AutoSize = true;
-            this.pdLbFirstname.Location = new System.Drawing.Point(49, 37);
+            this.pdLbFirstname.Location = new System.Drawing.Point(111, 33);
             this.pdLbFirstname.Name = "pdLbFirstname";
             this.pdLbFirstname.Size = new System.Drawing.Size(52, 13);
             this.pdLbFirstname.TabIndex = 7;
@@ -803,7 +811,7 @@ namespace WinPulsDaten
             this.perNudRestingPulse.Name = "perNudRestingPulse";
             this.perNudRestingPulse.Size = new System.Drawing.Size(192, 20);
             this.perNudRestingPulse.TabIndex = 2;
-            this.perNudRestingPulse.ValueChanged += new System.EventHandler(this.perNudRestingPulse_ValueChanged);
+            this.perNudRestingPulse.ValueChanged += new System.EventHandler(this.OnePerRestingPulsChange);
             // 
             // perCbActivity
             // 
@@ -813,7 +821,43 @@ namespace WinPulsDaten
             this.perCbActivity.Name = "perCbActivity";
             this.perCbActivity.Size = new System.Drawing.Size(192, 21);
             this.perCbActivity.TabIndex = 1;
-            this.perCbActivity.TextChanged += new System.EventHandler(this.perCbActivity_TextChanged);
+            this.perCbActivity.TextChanged += new System.EventHandler(this.OnPerActivityChanged);
+            // 
+            // pdLbWeightTitle
+            // 
+            this.pdLbWeightTitle.AutoSize = true;
+            this.pdLbWeightTitle.Location = new System.Drawing.Point(43, 106);
+            this.pdLbWeightTitle.Name = "pdLbWeightTitle";
+            this.pdLbWeightTitle.Size = new System.Drawing.Size(41, 13);
+            this.pdLbWeightTitle.TabIndex = 14;
+            this.pdLbWeightTitle.Text = "Weight";
+            // 
+            // pdLbSizeTitle
+            // 
+            this.pdLbSizeTitle.AutoSize = true;
+            this.pdLbSizeTitle.Location = new System.Drawing.Point(43, 83);
+            this.pdLbSizeTitle.Name = "pdLbSizeTitle";
+            this.pdLbSizeTitle.Size = new System.Drawing.Size(27, 13);
+            this.pdLbSizeTitle.TabIndex = 13;
+            this.pdLbSizeTitle.Text = "Size";
+            // 
+            // pdLbLastnameTitle
+            // 
+            this.pdLbLastnameTitle.AutoSize = true;
+            this.pdLbLastnameTitle.Location = new System.Drawing.Point(43, 58);
+            this.pdLbLastnameTitle.Name = "pdLbLastnameTitle";
+            this.pdLbLastnameTitle.Size = new System.Drawing.Size(53, 13);
+            this.pdLbLastnameTitle.TabIndex = 12;
+            this.pdLbLastnameTitle.Text = "Lastname";
+            // 
+            // pdLbFirstnameTitle
+            // 
+            this.pdLbFirstnameTitle.AutoSize = true;
+            this.pdLbFirstnameTitle.Location = new System.Drawing.Point(43, 33);
+            this.pdLbFirstnameTitle.Name = "pdLbFirstnameTitle";
+            this.pdLbFirstnameTitle.Size = new System.Drawing.Size(52, 13);
+            this.pdLbFirstnameTitle.TabIndex = 11;
+            this.pdLbFirstnameTitle.Text = "Firstname";
             // 
             // FrmMain
             // 
@@ -914,5 +958,9 @@ namespace WinPulsDaten
         private System.Windows.Forms.DataGridView anmeGDVCriticalViews;
         private System.Windows.Forms.Label anmeLbCriticalValues;
         private System.Windows.Forms.Button regBtnInfo;
+        private System.Windows.Forms.Label pdLbWeightTitle;
+        private System.Windows.Forms.Label pdLbSizeTitle;
+        private System.Windows.Forms.Label pdLbLastnameTitle;
+        private System.Windows.Forms.Label pdLbFirstnameTitle;
     }
 }

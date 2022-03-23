@@ -41,7 +41,7 @@ namespace WinPulsDaten
         }
 
         // Event: When this tab gets selected
-        private async void tabRegisterSelect()
+        private async void OnTabRegisterSelect()
         {
             regRadHfAuto.Checked = true;
             regDpBirth.MaxDate = DateTime.Now;
@@ -56,7 +56,8 @@ namespace WinPulsDaten
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unerwarteter Fehler aufgetraucht");
+                this.tabControll.SelectedIndex = 0;
+                MessageBox.Show(ex.Message, "Database-error");
             }
 
             this.SetTabeable(true);
@@ -133,6 +134,9 @@ namespace WinPulsDaten
             byte[] b = new byte[32];
             this.rdm.NextBytes(b);
             var salt = Encoding.UTF8.GetString(b);
+
+            this.SetTabeable(false);
+
             try
             {
                 // Registers the user
@@ -154,17 +158,19 @@ namespace WinPulsDaten
                 // Prepares and executes the query
                 cmd.Prepare();
 
-                // Inserts
+                // Registers the user
                 await this.DB.InsertAsync(cmd);
 
-                // TODO: Handle stuff
-                MessageBox.Show("You have successfully registered","Successfully registered");
+                // Logs in the user (This should only fail because of a failed db-connection)
+                await this.TryLoginUser(fname, lname, pwd);
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex);
-                // TODO: Handle error
+                this.tabControll.SelectedIndex = 0;
+                MessageBox.Show(ex.Message, "Database-error");
             }
+
+            this.SetTabeable(true);
 
         }
 
@@ -176,14 +182,14 @@ namespace WinPulsDaten
         }
 
         // Event: When the caulation gets changed to auto
-        private void regRadHfAuto_CheckedChanged(object sender, EventArgs e)
+        private void OnRegSelectAutoHF(object sender, EventArgs e)
         {
             this.regNudHfMax.Enabled = false;
             this.OnRegHFValueChange();
         }
 
         // Event: When the info-icon get's clicked
-        private void regBtnInfo_Click(object sender, EventArgs e)
+        private void OnRegInfoButtonClicked(object sender, EventArgs e)
         {
             MessageBox.Show(
                 "The HF-Max value is your maximum puls.\n" +

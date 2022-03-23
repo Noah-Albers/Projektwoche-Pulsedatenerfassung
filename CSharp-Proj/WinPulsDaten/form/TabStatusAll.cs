@@ -12,10 +12,10 @@ namespace WinPulsDaten
     public partial class FrmMain
     {
         // Event: When this tab get's selected
-        private void tabStatsAllSelect() => this.staCbMode.SelectedIndex = 0;
+        private void OnTabStatsAllSelect() => this.staCbMode.SelectedIndex = 0;
 
         // Event: When a different display mode get's selected
-        private async void staCbMode_SelectedIndexChanged(object sender, EventArgs e)
+        private async void OnStaModeChanged(object sender, EventArgs e)
         {
             // Loads a datatable with x axis and the name
             void LoadDT(DataTable table, string xAxis, string tableName)
@@ -59,9 +59,8 @@ namespace WinPulsDaten
             }
             catch (Exception ex)
             {
-                // Sends the user to the welcome page and shows an error
                 this.tabControll.SelectedIndex = 0;
-                MessageBox.Show(ex.Message, "Database-connection error");
+                MessageBox.Show(ex.Message, "Database-error");
             }
 
             // Reenables the mode selection
