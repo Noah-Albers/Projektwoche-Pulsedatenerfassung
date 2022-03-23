@@ -27,26 +27,28 @@ AND d.aktivitaet =
 (SELECT id FROM aktivitaet a WHERE a.Art = "Intervallmethode") 
 
 2.5
-SELECT p.HFmax, p.Geburtsdatum
+SELECT p.HFmax, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365) "alter"
 FROM person p
-ORDER BY p.Geburtsdatum
+ORDER BY 2
 
 
 2.6
-SELECT p.id, p.Geburtsdatum, AVG(d.wert)
+SELECT p.id, FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365), AVG(d.wert)
 FROM person p
 JOIN pulsdaten d ON p.ID = d.person
 GROUP BY d.person;
 
-2.7 ist das richtig?
-SELECT  (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365)) as "kritischer Bereich"
+2.7 
+SELECT  p.Vorname, p.Nachname, (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365)) as "kritischer Bereich", d.wert puls
 FROM person p
 JOIN pulsdaten d ON p.ID = d.person
-GROUP BY d.person
-HAVING "kritsischer Bereich" = 12;
+where d.wert >= (220 - FLOOR(DATEDIFF(CURRENT_DATE(),p.Geburtsdatum)/365))-10
 
 2.8
-SELECT count(p.ID) as "Anzahl der Personen die trainiert haben" FROM person p
-JOIN pulsdaten d ON p.ID = d.person
-WHERE MONTH(d.erfassungszeit) = 2
-AND YEAR(d.erfassungszeit) = 2022;
+SELECT count(*) personen FROM person p
+where p.ID in (
+	select distinct pls.person from pulsdaten pls
+    where 
+       	MONTH(pls.erfassungszeit) = 2
+        AND YEAR(pls.erfassungszeit) = 2022
+)
